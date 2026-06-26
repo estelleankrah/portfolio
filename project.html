@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project — Estelle Ankrah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-nav">
+    <a href="index.html" class="nav-logo">Estelle Ankrah</a>
+    <nav class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="reading.html">Reading</a>
+      <a href="about-me.html#cv">CV</a>
+    </nav>
+    <a href="mailto:estelleankrah1@gmail.com" class="nav-contact">Contact</a>
+  </header>
+
+  <!-- PROJECT HERO -->
+  <section class="project-hero">
+    <div class="project-hero-img" id="hero-slot" onclick="triggerHeroUpload()">
+      <img id="hero-img" src="" alt="" style="display:none">
+      <div class="strip-placeholder" id="hero-ph">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <span>Add hero image</span>
+      </div>
+      <input type="file" id="hero-file" class="file-inp" accept="image/*" onchange="previewHero(this)">
+    </div>
+
+    <div class="project-hero-meta">
+      <div>
+        <a href="index.html#work" class="project-back">← Back to work</a>
+        <h1 class="project-page-title" id="proj-title">Press Week<br>at John Lewis</h1>
+      </div>
+      <span class="project-category-tag" id="proj-cat">Brand &amp; PR</span>
+    </div>
+  </section>
+
+  <!-- PROJECT BODY -->
+  <div class="project-body">
+    <div class="project-narrative">
+      <h2 class="section-subhead">Overview</h2>
+      <div class="prose" id="proj-overview">
+        <p>In July 2024, I represented John Lewis at Press Week, one of the retail calendar's most significant media moments. My role sat at the intersection of PR operations, stakeholder liaison, and brand communications, precisely the kind of cross-functional work I had trained for at UAL.</p>
+        <p>I managed direct relationships with journalists attending the event, coordinating access, briefings, and follow-up correspondence. Alongside this I oversaw the influencer gifting programme: curating selections, preparing documentation, and ensuring every touchpoint reflected the John Lewis brand standard.</p>
+        <p>A key output was a competitor analysis report, tracking how rival retailers were positioning themselves across press and social channels during the same window. This fed directly into our post-event strategy review.</p>
+      </div>
+
+      <h2 class="section-subhead" style="margin-top:48px">Approach</h2>
+      <div class="prose">
+        <p>Preparation began weeks before the event. I built and maintained a media contact database, tracking journalist briefs, outlet priorities, and relationship history. Every gifting parcel was logged with recipient details and product compliance records, a discipline that came directly from my work as a JL Finance and Insurance Representative.</p>
+        <p>During the event itself, I balanced reactive media requests with proactive content creation for press social channels. I briefed internal teams, managed supplier communications, and escalated issues through the correct channels quickly and clearly.</p>
+      </div>
+    </div>
+
+    <aside class="project-sidebar">
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Client</p>
+        <p class="sidebar-row-val" id="proj-client">John Lewis &amp; Partners</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Year</p>
+        <p class="sidebar-row-val" id="proj-year">2024</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Disciplines</p>
+        <p class="sidebar-row-val" id="proj-disciplines">Press Relations · Influencer Gifting · Content Creation · Competitor Analysis</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Outcome</p>
+        <p class="sidebar-row-val" id="proj-outcome">Delivered full press and influencer programme across a five-day event window with zero briefing errors.</p>
+      </div>
+    </aside>
+  </div>
+
+
+  <!-- NEXT PROJECT -->
+  <div class="next-project">
+    <div>
+      <p class="next-project-label">Next Project</p>
+      <a href="project.html?p=dior">
+        <p class="next-project-title">Dior Homme Press Internship →</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <div class="footer-cta-top">
+      <p class="footer-cta-prompt">Have a project in mind?</p>
+      <div class="footer-social-links">
+        <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:estelleankrah1@gmail.com">Email</a>
+      </div>
+    </div>
+    <a href="mailto:estelleankrah1@gmail.com" class="footer-name-huge">ESTELLE<br>ANKRAH</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Estelle Ankrah. All rights reserved.</p>
+    </div>
+  </section>
+
+  <!-- FLOATING DOCK -->
+  <div class="floating-dock">
+    <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:estelleankrah1@gmail.com" class="dock-item" title="Email">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="cv.html" class="dock-btn">Download CV</a>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    /* Project page content lookup */
+    const projects = {
+      jl: {
+        title: 'Press Week<br>at John Lewis',
+        cat: 'Brand &amp; PR',
+        client: 'John Lewis &amp; Partners',
+        year: '2024',
+        disciplines: 'Press Relations · Influencer Gifting · Content Creation · Competitor Analysis',
+        outcome: 'Delivered full press and influencer programme across a five-day event window with zero briefing errors.',
+        heroLogo: 'projects/logos/john-lewis.png',
+        heroBg: '#000',
+        next: { label: 'Dior Homme Press Internship', href: 'project.html?p=dior' }
+      },
+      dior: {
+        title: 'Dior Homme<br>Press Internship',
+        cat: 'Brand &amp; PR',
+        client: 'Dior Homme',
+        year: '2021',
+        disciplines: 'Press Operations · Media Relations · Campaign Execution · Stakeholder Liaison',
+        outcome: 'Supported a global luxury brand PR team through a full campaign cycle, maintaining media relationships across two months.',
+        heroLogo: 'projects/logos/dior-homme.svg',
+        next: { label: 'CUT Denim Brand Launch', href: 'project.html?p=cut' }
+      },
+      cut: {
+        title: 'CUT Denim<br>Brand Launch',
+        cat: 'Events',
+        client: 'CUT at London College of Fashion',
+        year: '2021',
+        disciplines: 'Event Coordination · Press Content · Marketing Strategy · Promotional Materials',
+        outcome: 'Increased online engagement by 20% through coordinated press content and promotional production.',
+        next: { label: 'WEARERAVEN PR', href: 'project.html?p=raven' }
+      },
+      raven: {
+        title: 'WEARERAVEN PR',
+        cat: 'Brand &amp; PR',
+        client: 'WEARERAVEN PR',
+        year: '2021',
+        disciplines: 'Social Media Strategy · Content Planning · PR Administration',
+        outcome: 'Improved engagement rates by 20% through structured content strategy and editorial scheduling.',
+        heroLogo: 'projects/logos/raven-logo.jpg',
+        next: { label: 'JL Finance & Insurance Compliance', href: 'project.html?p=jlfinance' }
+      },
+      jlfinance: {
+        title: 'JL Finance &amp;<br>Insurance Compliance',
+        cat: 'Legal &amp; Admin',
+        client: 'John Lewis &amp; Partners',
+        year: '2023–2025',
+        disciplines: 'Regulatory Compliance · Customer Documentation · Financial Product Communication',
+        outcome: 'Qualified as JL Protect Plus F&I Representative, communicating regulated financial products to customers clearly and in full compliance.',
+        heroLogo: 'projects/logos/john-lewis.png',
+        heroBg: '#000',
+        next: { label: 'Tesco Operations & Compliance', href: 'project.html?p=tesco' }
+      },
+      tesco: {
+        title: 'Tesco Operations<br>&amp; Compliance',
+        cat: 'Legal &amp; Admin',
+        client: 'Tesco',
+        year: '2025–Present',
+        disciplines: 'Financial Compliance · Team Coordination · Complaint Resolution · Operational Management',
+        outcome: 'Promoted to Colleague Manager within six weeks for performance, reliability, and leadership under pressure.',
+        heroLogo: 'projects/logos/tesco.png',
+        heroBg: '#fff',
+        next: { label: 'Press Week at John Lewis', href: 'project.html?p=jl' }
+      }
+    };
+
+    function triggerHeroUpload() {
+      document.getElementById('hero-file').click();
+    }
+
+    function previewHero(input) {
+      const file = input.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      const img = document.getElementById('hero-img');
+      img.src = url; img.style.display = 'block';
+      document.getElementById('hero-ph').style.display = 'none';
+    }
+
+    /* Populate from query string */
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get('p') || 'jl';
+    const data = projects[key] || projects.jl;
+
+    document.getElementById('proj-title').innerHTML       = data.title;
+    document.getElementById('proj-cat').innerHTML         = data.cat;
+    document.getElementById('proj-client').innerHTML      = data.client;
+    document.getElementById('proj-year').textContent      = data.year;
+    document.getElementById('proj-disciplines').textContent = data.disciplines;
+    document.getElementById('proj-outcome').textContent   = data.outcome;
+    document.title = `${data.title.replace('<br>', ' ').replace(/&amp;/g,'&')} — Estelle Ankrah`;
+
+    /* Show logo in hero if project has one, hide upload slot */
+    if (data.heroLogo) {
+      const slot = document.getElementById('hero-slot');
+      slot.onclick = null;
+      slot.style.background = data.heroBg || '#fff';
+      slot.style.cursor = 'default';
+      const img = document.getElementById('hero-img');
+      img.src = data.heroLogo;
+      img.style.cssText = 'display:block;width:100%;height:100%;object-fit:contain;padding:40px;position:absolute;inset:0';
+      document.getElementById('hero-ph').style.display = 'none';
+    }
+
+    const nextLink = document.querySelector('.next-project a');
+    const nextTitle = document.querySelector('.next-project-title');
+    if (data.next) {
+      nextLink.href = data.next.href;
+      nextTitle.textContent = data.next.label + ' →';
+    }
+  </script>
+</body>
+</html>

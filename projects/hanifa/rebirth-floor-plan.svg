@@ -1,0 +1,107 @@
+<svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg" style="background:#f8f7f4">
+  <title>REBIRTH: The Becoming of Hanifa — Ground Level Floor Plan</title>
+
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#c0392b" opacity="0.8"/>
+    </marker>
+    <pattern id="grid" width="14" height="14" patternUnits="userSpaceOnUse">
+      <path d="M14 0 L0 0 0 14" fill="none" stroke="#d0ccc4" stroke-width="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- Grid background -->
+  <rect width="900" height="620" fill="#f8f7f4"/>
+  <rect width="900" height="620" fill="url(#grid)" opacity="0.6"/>
+
+  <!-- ── OUTER BUILDING SHELL ── -->
+  <rect x="80" y="60" width="740" height="500" rx="4" fill="none" stroke="#9b8b72" stroke-width="2"/>
+  <!-- Curved inner space -->
+  <path d="M 155,98 Q 155,390 420,400 Q 685,390 685,98 Z" fill="#ede9e0" stroke="#9b8b72" stroke-width="1.5"/>
+
+  <!-- ── ROOM ZONES (arc segments) ── -->
+  <!-- Teal/cyan left -->
+  <path d="M 195,128 Q 188,275 268,338 Q 188,325 158,218 Z" fill="#4ec9c2" opacity="0.82" stroke="white" stroke-width="1.2"/>
+  <!-- Yellow/gold -->
+  <path d="M 195,128 Q 238,116 290,120 Q 292,248 268,338 Z" fill="#e6b830" opacity="0.82" stroke="white" stroke-width="1.2"/>
+  <!-- Magenta/pink -->
+  <path d="M 290,120 Q 360,108 420,108 Q 418,215 398,308 Q 336,318 292,248 Z" fill="#d946a8" opacity="0.78" stroke="white" stroke-width="1.2"/>
+  <!-- Light teal right -->
+  <path d="M 420,108 Q 492,108 542,122 Q 526,248 490,315 Q 456,320 398,308 Z" fill="#7dd4cf" opacity="0.78" stroke="white" stroke-width="1.2"/>
+  <!-- Peach/tan right -->
+  <path d="M 542,122 Q 604,138 645,164 Q 612,262 568,315 Q 530,318 490,315 Z" fill="#e8a87c" opacity="0.78" stroke="white" stroke-width="1.2"/>
+
+  <!-- Room 1 & 2 label -->
+  <text x="162" y="188" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#333" font-weight="700" transform="rotate(-72,162,188)">ROOM 1</text>
+  <text x="152" y="206" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#333" font-weight="700" transform="rotate(-72,152,206)">&amp; 2</text>
+
+  <!-- ── WILL BE BOAT ── -->
+  <circle cx="420" cy="268" r="64" fill="#5bc8d4" opacity="0.42" stroke="#2aa8b5" stroke-width="1.5"/>
+  <circle cx="420" cy="268" r="64" fill="none" stroke="#2aa8b5" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="420" y="261" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" fill="#145f68" font-weight="700" text-anchor="middle">WILL BE BOAT</text>
+  <text x="420" y="277" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#145f68" text-anchor="middle">CONCEPT HALL</text>
+
+  <!-- ── GIFTSHOP ── -->
+  <rect x="596" y="76" width="138" height="118" rx="4" fill="#d4b896" opacity="0.65" stroke="#9b8b72" stroke-width="1.5"/>
+  <text x="665" y="133" font-family="Helvetica Neue,Arial,sans-serif" font-size="11.5" fill="#5a3e2b" font-weight="700" text-anchor="middle">GIFTSHOP</text>
+
+  <!-- ── EXHIBITION AREAS ── -->
+  <!-- Area 1 — large salmon/pink -->
+  <rect x="258" y="378" width="228" height="148" rx="3" fill="#e8937a" opacity="0.72" stroke="#c0654a" stroke-width="1.5"/>
+  <text x="372" y="445" font-family="Helvetica Neue,Arial,sans-serif" font-size="11.5" fill="#5a2010" font-weight="700" text-anchor="middle">Exhibition Area 1</text>
+
+  <!-- Exhibition 2 — orange -->
+  <rect x="490" y="396" width="146" height="126" rx="3" fill="#e8a040" opacity="0.72" stroke="#b87020" stroke-width="1.5"/>
+  <text x="563" y="456" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" fill="#4a2800" font-weight="700" text-anchor="middle">Exhibition 2</text>
+
+  <!-- Exhibition 3 — green -->
+  <rect x="148" y="418" width="106" height="96" rx="3" fill="#8dc87a" opacity="0.72" stroke="#4a8a38" stroke-width="1.5"/>
+  <text x="201" y="468" font-family="Helvetica Neue,Arial,sans-serif" font-size="10.5" fill="#1e4a10" font-weight="700" text-anchor="middle">Exhibition 3</text>
+
+  <!-- ── ENTRANCE ── -->
+  <rect x="318" y="58" width="204" height="42" rx="3" fill="#f4f0e8" stroke="#9b8b72" stroke-width="1.5"/>
+  <text x="420" y="83" font-family="Georgia,serif" font-size="15" fill="#2a2218" font-style="italic" text-anchor="middle" letter-spacing="3">Entrance</text>
+
+  <!-- ── VISITOR FLOW ── -->
+  <path d="M 420,100 L 420,202" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="5,4" opacity="0.85" marker-end="url(#arrow)"/>
+  <path d="M 360,332 L 290,360" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="5,4" opacity="0.85" marker-end="url(#arrow)"/>
+  <path d="M 420,334 L 420,376" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="5,4" opacity="0.85" marker-end="url(#arrow)"/>
+  <path d="M 486,334 L 520,392" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="5,4" opacity="0.85" marker-end="url(#arrow)"/>
+  <path d="M 420,82 L 594,82" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="5,4" opacity="0.85" marker-end="url(#arrow)"/>
+
+  <!-- ── BOAT INSET REFERENCE ── -->
+  <rect x="634" y="266" width="122" height="94" rx="4" fill="#d4c4a2" stroke="#9b8b72" stroke-width="1.5"/>
+  <ellipse cx="695" cy="308" rx="46" ry="19" fill="#9a7040" opacity="0.88"/>
+  <path d="M 649,306 Q 695,288 741,306" fill="none" stroke="#6a4820" stroke-width="2"/>
+  <line x1="695" y1="288" x2="695" y2="268" stroke="#6a4820" stroke-width="1.5"/>
+  <path d="M 686,268 L 695,256 L 704,268 Z" fill="#8a6030"/>
+  <text x="695" y="348" font-family="Helvetica Neue,Arial,sans-serif" font-size="9" fill="#5a3e2b" text-anchor="middle" font-style="italic">boat concept</text>
+
+  <!-- ── LEGEND ── -->
+  <rect x="88" y="535" width="724" height="62" rx="4" fill="white" stroke="#d8d2c8" stroke-width="1" opacity="0.92"/>
+
+  <rect x="106" y="552" width="13" height="13" fill="#4ec9c2" rx="2"/>
+  <text x="124" y="563" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#444">Rooms 1 &amp; 2</text>
+
+  <rect x="210" y="552" width="13" height="13" fill="#5bc8d4" rx="2"/>
+  <text x="228" y="563" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#444">Concept Hall</text>
+
+  <rect x="320" y="552" width="13" height="13" fill="#e8937a" rx="2"/>
+  <text x="338" y="563" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#444">Exhibition Area 1</text>
+
+  <rect x="455" y="552" width="13" height="13" fill="#e8a040" rx="2"/>
+  <text x="473" y="563" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#444">Exhibition 2</text>
+
+  <rect x="558" y="552" width="13" height="13" fill="#8dc87a" rx="2"/>
+  <text x="576" y="563" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#444">Exhibition 3</text>
+
+  <rect x="650" y="552" width="13" height="13" fill="#d4b896" rx="2"/>
+  <text x="668" y="563" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#444">Giftshop</text>
+
+  <line x1="106" y1="578" x2="140" y2="578" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="148" y="582" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#444">Visitor circulation</text>
+
+  <!-- ── HEADER ── -->
+  <text x="420" y="28" font-family="Helvetica Neue,Arial,sans-serif" font-size="12.5" fill="#2a2218" font-weight="700" text-anchor="middle" letter-spacing="2">REBIRTH: THE BECOMING OF HANIFA</text>
+  <text x="420" y="46" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#888" text-anchor="middle" letter-spacing="2">GROUND LEVEL FLOOR PLAN  ·  THE BARBICAN, LONDON</text>
+</svg>

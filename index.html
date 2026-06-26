@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estelle Ankrah — Fashion PR & Communications</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://estelleankrah.github.io/index.html">
+  <meta property="og:title" content="Estelle Ankrah — Fashion PR, Marketing & Communications">
+  <meta property="og:description" content="Portfolio of Estelle Ankrah — 5+ years across luxury fashion PR, brand strategy, social media, retail events and marketing. UAL First Class Honours.">
+  <meta property="og:image" content="https://estelleankrah.github.io/estelle-headshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Estelle Ankrah — Fashion PR, Marketing & Communications">
+  <meta name="twitter:description" content="Portfolio of Estelle Ankrah — 5+ years across luxury fashion PR, brand strategy, social media, retail events and marketing. UAL First Class Honours.">
+  <meta name="twitter:image" content="https://estelleankrah.github.io/estelle-headshot.png">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+  <header class="site-nav">
+    <a href="index.html" class="nav-logo">Estelle Ankrah</a>
+    <nav class="nav-links">
+      <a href="about-me.html">About</a>
+      <a href="#industry">Industry</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="reading.html">Reading</a>
+      <a href="about-me.html#cv">CV</a>
+    </nav>
+    <a href="mailto:estelleankrah1@gmail.com" class="nav-contact">Contact</a>
+  </header>
+
+  <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-headline">
+        <span class="wt-light">Hi, I'm </span><span class="wt-bold">Estelle.</span><br>
+        <span class="wt-bold">Fashion PR &amp; Law.</span><br>
+        <span class="wt-bold">Marketing &amp; Communications.</span>
+      </h1>
+      <p class="hero-sub">5+ years across luxury fashion PR, brand strategy, social media, retail events, and marketing — from Dior Homme to John Lewis &amp; Partners.</p>
+      <div class="tag-row">
+        <span class="dot-tag"><span class="dot dot-1"></span>Fashion PR</span>
+        <span class="dot-tag"><span class="dot dot-2"></span>Brand Identity</span>
+        <span class="dot-tag"><span class="dot dot-3"></span>Legal Administration</span>
+        <span class="dot-tag"><span class="dot dot-4"></span>Crisis Management</span>
+        <span class="dot-tag"><span class="dot dot-5"></span>LLM Fashion Law</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ IMAGE STRIP ══════════════════════════ -->
+  <div class="strip-scroll-outer" style="display:none">
+    <div class="strip-scroll-track">
+      <div class="strip-card" onclick="triggerUpload('strip-0')">
+        <img id="strip-0-img" src="" alt="" style="display:none">
+        <div class="strip-placeholder" id="strip-0-ph">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span>Add image</span>
+        </div>
+        <input type="file" id="strip-0" class="file-inp" accept="image/*" onchange="previewStrip(this,0)">
+      </div>
+      <div class="strip-card" onclick="triggerUpload('strip-1')">
+        <img id="strip-1-img" src="" alt="" style="display:none">
+        <div class="strip-placeholder" id="strip-1-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg><span>Add image</span></div>
+        <input type="file" id="strip-1" class="file-inp" accept="image/*" onchange="previewStrip(this,1)">
+      </div>
+      <div class="strip-card" onclick="triggerUpload('strip-2')">
+        <img id="strip-2-img" src="" alt="" style="display:none">
+        <div class="strip-placeholder" id="strip-2-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg><span>Add image</span></div>
+        <input type="file" id="strip-2" class="file-inp" accept="image/*" onchange="previewStrip(this,2)">
+      </div>
+      <div class="strip-card" onclick="triggerUpload('strip-3')">
+        <img id="strip-3-img" src="" alt="" style="display:none">
+        <div class="strip-placeholder" id="strip-3-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg><span>Add image</span></div>
+        <input type="file" id="strip-3" class="file-inp" accept="image/*" onchange="previewStrip(this,3)">
+      </div>
+      <div class="strip-card" onclick="triggerUpload('strip-4')">
+        <img id="strip-4-img" src="" alt="" style="display:none">
+        <div class="strip-placeholder" id="strip-4-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg><span>Add image</span></div>
+        <input type="file" id="strip-4" class="file-inp" accept="image/*" onchange="previewStrip(this,4)">
+      </div>
+      <div class="strip-card" onclick="triggerUpload('strip-5')">
+        <img id="strip-5-img" src="" alt="" style="display:none">
+        <div class="strip-placeholder" id="strip-5-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg><span>Add image</span></div>
+        <input type="file" id="strip-5" class="file-inp" accept="image/*" onchange="previewStrip(this,5)">
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════ ABOUT ═════════════════════════════ -->
+  <section id="about" style="display:grid;grid-template-columns:340px 1fr;border-bottom:1px solid var(--rule)">
+    <div class="about-center" style="padding:64px 32px 64px 40px;border-right:1px solid var(--rule)">
+      <div class="about-photo-wrap" style="cursor:default;width:100%">
+        <img src="estelle-headshot.png" alt="Estelle Ankrah" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0">
+      </div>
+    </div>
+    <div class="about-right" style="padding:64px 40px 64px 48px">
+      <p class="small-caps-label">My Super Power</p>
+      <p class="superpower-text">
+        <span class="wt-light">I genuinely care about the brands I represent and the spaces they want to show up in. For me, </span><span class="text-highlight"><span class="wt-light">good communications is about building stories with </span><span class="wt-bold">intention</span></span><span class="wt-light"> — making sure every detail is handled with </span><span class="text-highlight"><span class="wt-bold">precision and care,</span></span><span class="wt-light"> and that </span><span class="text-highlight"><span class="wt-bold">the message lands the way it should.</span></span><span class="wt-light"> That's what I bring to every brief.</span>
+      </p>
+      <a href="about-me.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:32px;font-family:var(--font-head);font-size:13px;font-weight:600;letter-spacing:0.06em;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:4px;transition:opacity 0.2s" onmouseover="this.style.opacity='0.55'" onmouseout="this.style.opacity='1'">
+        More about Estelle
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ TICKER TAGS ══════════════════════════ -->
+  <div class="ticker-outer">
+    <div class="ticker-track" id="ticker-track">
+      <!-- built by JS -->
+    </div>
+  </div>
+
+  <!-- ══════════════════════ LIVE INDUSTRY PROJECTS ═══════════════════ -->
+  <section class="industry-section" id="industry">
+    <div class="industry-header">
+      <div class="industry-header-left">
+        <p class="small-caps-label">Live Industry Projects</p>
+        <h2 class="industry-heading">
+          <span class="wt-light">Work developed</span><br>
+          <span class="wt-bold">in live briefs</span>
+        </h2>
+      </div>
+      <p class="industry-sub">360° communication campaigns and brand strategy projects developed at UAL London College of Fashion in collaboration with real brands.</p>
+    </div>
+
+    <!-- Featured hero card -->
+    <a href="supriya-lele.html" class="industry-hero-card" id="industry-hero-card">
+      <div class="industry-hero-img">
+        <img src="projects/supriya-lele/1.png" alt="Supriya Lele AW21 Campaign" id="industry-hero-img" style="transition:opacity 0.25s ease">
+        <div class="industry-hero-overlay">
+          <div class="industry-hero-meta">
+            <span class="industry-card-label" id="industry-hero-label">01 &nbsp;·&nbsp; UAL Brief &nbsp;·&nbsp; 2021</span>
+          </div>
+          <div class="industry-hero-bottom">
+            <div>
+              <p class="industry-hero-type" id="industry-hero-type">360° AW21 Communication Campaign</p>
+              <h3 class="industry-hero-brand" id="industry-hero-brand">Supriya<br>Lele</h3>
+            </div>
+            <span class="industry-hero-cta">View Project ↗</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Horizontal brand scroll -->
+    <div class="industry-scroll-outer" id="industry-scroll">
+      <div class="industry-scroll-track">
+
+        <a href="supriya-lele.html" class="industry-brand-card"
+           data-hero-imgs="projects/supriya-lele/1.png,projects/supriya-lele/30.png,projects/supriya-lele/33.png,projects/supriya-lele/20.png"
+           data-hero-label="01 &nbsp;·&nbsp; UAL Brief &nbsp;·&nbsp; 2021"
+           data-hero-type="360° AW21 Communication Campaign"
+           data-hero-brand="Supriya<br>Lele">
+          <div class="industry-brand-img">
+            <img src="projects/supriya-lele/30.png" alt="Supriya Lele Lookbook">
+          </div>
+          <div class="industry-brand-info">
+            <span class="industry-card-label">01 &nbsp;·&nbsp; 2021</span>
+            <h4 class="industry-brand-name">Supriya Lele</h4>
+            <p class="industry-brand-desc">360° Campaign &amp; Lookbook Design</p>
+          </div>
+        </a>
+
+        <a href="skims.html" class="industry-brand-card"
+           data-hero-imgs="projects/skims/cover.jpg,projects/skims/slide-19.png,projects/skims/slide-20.png,projects/skims/slide-27.png"
+           data-hero-label="02 &nbsp;·&nbsp; UAL Brief &nbsp;·&nbsp; 2021"
+           data-hero-type="Crisis Communications Brief"
+           data-hero-brand="SKIMS">
+          <div class="industry-brand-img">
+            <img src="projects/skims/cover.jpg" alt="SKIMS Crisis Communications" style="object-fit:cover;object-position:center top">
+          </div>
+          <div class="industry-brand-info">
+            <span class="industry-card-label">02 &nbsp;·&nbsp; 2021</span>
+            <h4 class="industry-brand-name">SKIMS</h4>
+            <p class="industry-brand-desc">Crisis Communications &amp; Brand Guardian</p>
+          </div>
+        </a>
+
+        <a href="hanifa.html" class="industry-brand-card"
+           data-hero-imgs="projects/hanifa/rebirth-gallery-orbs.jpg,projects/hanifa/rebirth-boat-room.jpg,projects/hanifa/rebirth-fashion-led.jpg,projects/hanifa/rebirth-gallery-interior.jpg"
+           data-hero-label="03 &nbsp;·&nbsp; UAL Brief &nbsp;·&nbsp; 2022–23"
+           data-hero-type="Brand Audit &amp; Final Year Project"
+           data-hero-brand="Hanifa">
+          <div class="industry-brand-img">
+            <img src="projects/hanifa/slide-001.png" alt="Hanifa Brand Research">
+          </div>
+          <div class="industry-brand-info">
+            <span class="industry-card-label">03 &nbsp;·&nbsp; 2022–23</span>
+            <h4 class="industry-brand-name">Hanifa</h4>
+            <p class="industry-brand-desc">Brand Audit &amp; Independent Research</p>
+          </div>
+        </a>
+
+        <a href="urban-outfitters.html" class="industry-brand-card"
+           data-hero-imgs="projects/urban-outfitters/tube-map-billboards.png,projects/urban-outfitters/tactical/slide-3.jpg,projects/urban-outfitters/tactical/slide-7.jpg,projects/urban-outfitters/tactical/slide-8.jpg"
+           data-hero-label="04 &nbsp;·&nbsp; UAL Brief &nbsp;·&nbsp; 2022"
+           data-hero-type="Innovative Communication Tactics"
+           data-hero-brand="Urban<br>Outfitters">
+          <div class="industry-brand-img">
+            <img src="projects/urban-outfitters/tactical/slide-1.jpg" alt="Urban Outfitters 22/52" style="object-position:center top">
+          </div>
+          <div class="industry-brand-info">
+            <span class="industry-card-label">04 &nbsp;·&nbsp; 2022</span>
+            <h4 class="industry-brand-name">Urban Outfitters</h4>
+            <p class="industry-brand-desc">22/52 Gaming Collaboration</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ WORK ══════════════════════════════ -->
+  <section class="work-section" id="work">
+    <div class="work-intro">
+      <h2 class="work-heading">
+        <span class="wt-light">A fraction of </span><span class="wt-bold">my work</span>
+      </h2>
+      <p class="work-sub">I've led brand campaigns, press operations, and compliance-driven projects at
+        <em><a href="project.html?p=jl">John Lewis</a></em>,
+        <em><a href="project.html?p=dior">Dior Homme</a></em>, and
+        <em><a href="project.html?p=raven">WEARERAVEN PR</a></em>.
+      </p>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="brand-pr">Brand &amp; PR</button>
+      <button class="filter-btn" data-filter="events">Events</button>
+      <button class="filter-btn" data-filter="legal-admin">Legal &amp; Admin</button>
+    </div>
+
+    <div class="project-grid" id="project-grid">
+
+      <!-- JL EVENTS — full-width featured card -->
+      <article class="project-card" data-cat="events" style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule)">
+        <a href="jl-events.html" class="project-card-img-wrap" style="margin-bottom:0">
+          <div class="project-img-slot" data-slot="proj-jl-ev" style="cursor:default;aspect-ratio:auto;min-height:340px;background:#000">
+            <img src="projects/jl-events/jl-logo.png" alt="John Lewis & Partners" style="display:block;width:100%;height:100%;object-fit:contain;padding:40px;position:absolute;inset:0">
+          </div>
+        </a>
+        <div class="project-card-body" style="padding:36px 40px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--rule)">
+          <p style="font-family:var(--font-body);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Events &amp; Marketing · John Lewis Ipswich</p>
+          <a href="jl-events.html" class="project-card-title" style="font-size:22px;margin-bottom:12px">John Lewis Events <span class="arrow-icon">↗</span></a>
+          <p class="project-card-desc">Suffolk Show activation, Morris &amp; Co collaboration, Christmas campaign, and baby &amp; nursery events — planned, coordinated and delivered as Events and Marketing Coordinator at John Lewis Ipswich.</p>
+          <div class="project-tags" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--rule);color:var(--muted)">Suffolk Show 2025</span>
+            <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--rule);color:var(--muted)">Morris &amp; Co Workshop 2024</span>
+            <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--rule);color:var(--muted)">Santa's Tea Party 2024</span>
+            <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--rule);color:var(--muted)">Christmas Tablescaping 2024</span>
+            <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--rule);color:var(--muted)">Baby &amp; Nursery</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="brand-pr">
+        <a href="project.html?p=jl" class="project-card-img-wrap">
+          <div class="project-img-slot" data-slot="proj-0">
+            <img src="projects/logos/john-lewis.png" alt="John Lewis & Partners" style="display:block;width:100%;height:100%;object-fit:contain;padding:16px;position:absolute;inset:0;background:#000">
+          </div>
+        </a>
+        <div class="project-card-body">
+          <a href="project.html?p=jl" class="project-card-title">Press Week at John Lewis <span class="arrow-icon">↗</span></a>
+          <p class="project-card-desc">Journalist liaison, influencer gifting, and competitor analysis at a flagship retail press event. Documentation and compliance records managed throughout.</p>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="brand-pr">
+        <a href="project.html?p=dior" class="project-card-img-wrap">
+          <div class="project-img-slot" data-slot="proj-1" style="background:#fff;cursor:default">
+            <img src="projects/logos/dior-homme.svg" alt="Dior Homme" style="display:block;width:100%;height:100%;object-fit:contain;padding:20px;position:absolute;inset:0">
+          </div>
+        </a>
+        <div class="project-card-body">
+          <a href="project.html?p=dior" class="project-card-title">Dior Homme Press Internship <span class="arrow-icon">↗</span></a>
+          <p class="project-card-desc">Operational PR support for a global luxury house: media relationships, stakeholder correspondence, and campaign execution with precision.</p>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="events">
+        <a href="cut.html" class="project-card-img-wrap">
+          <div class="project-img-slot" data-slot="proj-2" style="background:#fff;cursor:default">
+            <img src="projects/cut/cut-logo.png" alt="CUT Denim Brand Launch" style="display:block;width:100%;height:100%;object-fit:contain;padding:24px;position:absolute;inset:0">
+          </div>
+        </a>
+        <div class="project-card-body">
+          <a href="cut.html" class="project-card-title">CUT Denim Brand Launch <span class="arrow-icon">↗</span></a>
+          <p class="project-card-desc">End-to-end event coordination for a denim brand launch at LCF: press content strategy, marketing materials, and promotional production. Online engagement increased 20%.</p>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="brand-pr">
+        <a href="project.html?p=raven" class="project-card-img-wrap">
+          <div class="project-img-slot" data-slot="proj-3" style="background:#fff;cursor:default">
+            <img src="projects/logos/raven-logo.jpg" alt="WEARERAVEN PR" style="display:block;width:100%;height:100%;object-fit:contain;padding:24px;position:absolute;inset:0;background:#fff">
+          </div>
+        </a>
+        <div class="project-card-body">
+          <a href="project.html?p=raven" class="project-card-title">WEARERAVEN PR <span class="arrow-icon">↗</span></a>
+          <p class="project-card-desc">Strategic content planning and PR administration for a contemporary fashion agency, growing engagement 20% through structured campaign scheduling and editorial accuracy.</p>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="legal-admin">
+        <a href="project.html?p=jlfinance" class="project-card-img-wrap">
+          <div class="project-img-slot" data-slot="proj-4" style="background:#000;cursor:default">
+            <img src="projects/logos/john-lewis.png" alt="John Lewis & Partners" style="display:block;width:100%;height:100%;object-fit:contain;padding:16px;position:absolute;inset:0">
+          </div>
+        </a>
+        <div class="project-card-body">
+          <a href="project.html?p=jlfinance" class="project-card-title">JL Finance &amp; Insurance Compliance <span class="arrow-icon">↗</span></a>
+          <p class="project-card-desc">Qualified as JL Protect Plus F&amp;I Representative, communicating complex financial product terms clearly while maintaining full regulatory compliance and accurate customer documentation.</p>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="legal-admin">
+        <a href="project.html?p=tesco" class="project-card-img-wrap">
+          <div class="project-img-slot" data-slot="proj-5" style="background:#fff;cursor:default">
+            <img src="projects/logos/tesco.png" alt="Tesco" style="display:block;width:100%;height:100%;object-fit:contain;padding:24px;position:absolute;inset:0">
+          </div>
+        </a>
+        <div class="project-card-body">
+          <a href="project.html?p=tesco" class="project-card-title">Tesco Operations &amp; Compliance <span class="arrow-icon">↗</span></a>
+          <p class="project-card-desc">Rapid promotion to Colleague Manager within six weeks, overseeing financial compliance procedures, multi-team shift coordination, and structured complaint resolution under operational pressure.</p>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="brand-pr">
+        <a href="amarante.html" class="project-card-img-wrap">
+          <div class="project-img-slot" data-slot="proj-amarante" style="cursor:default">
+            <img src="projects/amarante/cover.png" alt="Amaranté London x Adidas Bloom" style="display:block;width:100%;height:100%;object-fit:contain;padding:12px;position:absolute;inset:0;background:#fff">
+          </div>
+        </a>
+        <div class="project-card-body">
+          <a href="amarante.html" class="project-card-title">Amaranté London × Adidas Bloom <span class="arrow-icon">↗</span></a>
+          <p class="project-card-desc">Brand activation pitch for an Instagrammable floral arch on Oxford Street during Chelsea in Bloom 2025, driving footfall and social engagement for the Adidas Bloom Collection through influencer seeding and a five-day content campaign.</p>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="brand-pr">
+        <a href="event-hotline.html" class="project-card-img-wrap">
+          <div class="project-img-slot" data-slot="proj-6" style="cursor:default">
+            <img src="projects/event-hotline/ehr-logo-unicorn.jpg" alt="Event Hotline Rentals" style="display:block;width:100%;height:100%;object-fit:contain;padding:16px;position:absolute;inset:0;background:#fff">
+          </div>
+        </a>
+        <div class="project-card-body">
+          <a href="event-hotline.html" class="project-card-title">Event Hotline Rentals <span class="arrow-icon">↗</span></a>
+          <p class="project-card-desc">Social Media Manager Assistant on placement in Accra, Ghana. Rebranding a luxury events agency, growing their Instagram presence, creating content with Adobe Creative Suite, and managing influencer gifting for clients including Tilly Hair GH.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ WORK EXPERIENCE ════════════════════════ -->
+  <section class="experience-section" id="experience">
+    <div class="exp-header">
+      <p class="small-caps-label">Work Experience</p>
+    </div>
+
+    <div class="exp-list">
+
+      <div class="exp-row">
+        <div class="exp-dates">Nov 2025 – Present</div>
+        <div class="exp-detail">
+          <p class="exp-company">Tesco</p>
+          <p class="exp-role">Off Till Colleague Manager</p>
+          <p class="exp-desc">Promoted within six weeks for performance and leadership potential. Oversees front-end financial compliance, multi-shift coordination, and structured resolution of complex customer complaints.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-dates">Nov 2021 – Sept 2025</div>
+        <div class="exp-detail">
+          <p class="exp-company">John Lewis &amp; Partners</p>
+          <p class="exp-role">Nursery Advisor · Events Coordinator · Wellbeing Champion</p>
+          <p class="exp-desc">Three simultaneous roles across four years. Contract and compliance documentation, B2B vendor scheduling, and multi-stakeholder coordination. Represented John Lewis at Press Week 2024: journalist liaison, influencer gifting, competitor analysis. JL Protect Plus Finance &amp; Insurance Representative. Wellbeing Champion for 200+ staff. Increased event footfall 48.9%.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-dates">Jan 2022 – Jul 2023</div>
+        <div class="exp-detail">
+          <p class="exp-company">Event Hotline</p>
+          <p class="exp-role">Social Media Assistant</p>
+          <p class="exp-desc">Content scheduling, agency social presence management, and PR event support across concurrent projects. Grew engagement by 25% through targeted content strategy.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-dates">Sept – Nov 2021</div>
+        <div class="exp-detail">
+          <p class="exp-company">WEARERAVEN PR</p>
+          <p class="exp-role">Social Media Intern</p>
+          <p class="exp-desc">Strategic content planning and PR administration for a contemporary fashion PR agency. Improved engagement rates by 20%.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-dates">Jul – Sept 2021</div>
+        <div class="exp-detail">
+          <p class="exp-company">Dior Homme</p>
+          <p class="exp-role">Press Intern</p>
+          <p class="exp-desc">Operational support to PR for a global luxury brand: maintained media relationships and supported campaign execution.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-dates">May – Aug 2021</div>
+        <div class="exp-detail">
+          <p class="exp-company">CUT at London College of Fashion</p>
+          <p class="exp-role">Project &amp; Event Coordinator</p>
+          <p class="exp-desc">Coordinated a denim brand launch: press content, marketing strategy, and promotional production. Increased online engagement by 20%.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ EDUCATION ═══════════════════════════ -->
+  <section class="experience-section" id="education">
+    <div class="exp-header">
+      <p class="small-caps-label">Education</p>
+    </div>
+
+    <div class="exp-list">
+
+      <div class="exp-row">
+        <div class="exp-dates">Sept 2026</div>
+        <div class="exp-detail">
+          <p class="exp-company">Queen Mary University of London</p>
+          <p class="exp-role">LLM Fashion Law · Applying</p>
+          <p class="exp-desc">IP · Consumer Law · Sustainability Regulation · Brand Ethics</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-dates">2020 – 2023</div>
+        <div class="exp-detail">
+          <p class="exp-company">UAL London College of Fashion</p>
+          <p class="exp-role">BA Fashion PR &amp; Communications, <strong>First Class Honours</strong></p>
+          <p class="exp-desc">Studied brand strategy, media relations, campaign development, and fashion communications in the context of the global fashion industry.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-dates">2018 – 2020</div>
+        <div class="exp-detail">
+          <p class="exp-company">Northgate Sixth Form</p>
+          <p class="exp-role">A Levels including Law &amp; Psychology</p>
+          <p class="exp-desc">Covered various areas of law including criminal law, contract law, tort, constitutional and administrative law, human rights, and legal theory. Participated in the Young Citizens Mock Trial programme, developing practical skills in legal reasoning, advocacy, and courtroom procedure.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ FOOTER CTA ═══════════════════════════ -->
+  <section class="footer-cta">
+    <div class="footer-cta-top">
+      <p class="footer-cta-prompt">Have a project in mind?</p>
+      <div class="footer-social-links">
+        <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:estelleankrah1@gmail.com">Email</a>
+      </div>
+    </div>
+    <a href="mailto:estelleankrah1@gmail.com" class="footer-name-huge">ESTELLE<br>ANKRAH</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Estelle Ankrah. All rights reserved.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ FLOATING DOCK ════════════════════════ -->
+  <div class="floating-dock">
+    <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:estelleankrah1@gmail.com" class="dock-item" title="Email">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="cv.html" class="dock-btn">Download CV</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

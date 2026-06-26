@@ -1,0 +1,69 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="500" fill="#2d0608"/>
+
+  <!-- Wings - left -->
+  <g opacity="0.7" fill="#b0b8c4">
+    <!-- Left wing feathers -->
+    <ellipse cx="108" cy="220" rx="18" ry="52" transform="rotate(-30,108,220)"/>
+    <ellipse cx="88" cy="240" rx="14" ry="58" transform="rotate(-50,88,240)"/>
+    <ellipse cx="72" cy="265" rx="12" ry="52" transform="rotate(-65,72,265)"/>
+    <ellipse cx="64" cy="292" rx="10" ry="44" transform="rotate(-80,64,292)"/>
+    <!-- Inner wing -->
+    <ellipse cx="125" cy="210" rx="14" ry="44" transform="rotate(-15,125,210)"/>
+  </g>
+
+  <!-- Wings - right -->
+  <g opacity="0.7" fill="#b0b8c4">
+    <ellipse cx="392" cy="220" rx="18" ry="52" transform="rotate(30,392,220)"/>
+    <ellipse cx="412" cy="240" rx="14" ry="58" transform="rotate(50,412,240)"/>
+    <ellipse cx="428" cy="265" rx="12" ry="52" transform="rotate(65,428,265)"/>
+    <ellipse cx="436" cy="292" rx="10" ry="44" transform="rotate(80,436,292)"/>
+    <ellipse cx="375" cy="210" rx="14" ry="44" transform="rotate(15,375,210)"/>
+  </g>
+
+  <!-- Shield shape -->
+  <path d="M150,130 L350,130 L370,160 L370,310 L250,400 L130,310 L130,160 Z"
+    fill="#3d0a0f" stroke="#8a9ba8" stroke-width="4"/>
+  <!-- Shield inner border -->
+  <path d="M162,142 L338,142 L356,168 L356,305 L250,388 L144,305 L144,168 Z"
+    fill="none" stroke="#8a9ba8" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Banner ribbon background -->
+  <rect x="118" y="255" width="264" height="52" rx="2" fill="#1a0204"/>
+  <!-- Banner side triangles -->
+  <polygon points="118,255 95,281 118,307" fill="#0e0102"/>
+  <polygon points="382,255 405,281 382,307" fill="#0e0102"/>
+
+  <!-- Unicorn silhouette (white, simplified) -->
+  <g fill="white" transform="translate(250,95) scale(0.7)">
+    <!-- Body -->
+    <ellipse cx="0" cy="80" rx="30" ry="22" transform="rotate(-15)"/>
+    <!-- Neck -->
+    <rect x="-10" y="40" width="18" height="45" rx="8" transform="rotate(-20,-10,60)"/>
+    <!-- Head -->
+    <ellipse cx="-8" cy="28" rx="16" ry="12" transform="rotate(-10)"/>
+    <!-- Horn -->
+    <polygon points="-8,14 -4,16 -16,-10" fill="white"/>
+    <!-- Mane -->
+    <path d="M-4,30 Q-20,45 -18,65" fill="none" stroke="white" stroke-width="3"/>
+    <!-- Front legs raised -->
+    <rect x="-5" y="90" width="9" height="38" rx="4" transform="rotate(-30,-5,90)"/>
+    <rect x="8" y="88" width="9" height="42" rx="4" transform="rotate(-55,8,88)"/>
+    <!-- Back legs -->
+    <rect x="-18" y="90" width="9" height="40" rx="4" transform="rotate(10,-18,90)"/>
+    <rect x="-8" y="95" width="9" height="38" rx="4"/>
+    <!-- Tail -->
+    <path d="M18,78 Q45,60 40,90 Q42,110 30,105" fill="none" stroke="white" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- EVENT text on banner -->
+  <text x="250" y="290" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-weight="900" font-size="34" fill="white" text-anchor="middle"
+    letter-spacing="6">EVENT</text>
+
+  <!-- Hotline cursive below banner -->
+  <text x="250" y="330" font-family="Georgia,'Times New Roman',serif"
+    font-style="italic" font-size="28" fill="white" text-anchor="middle"
+    letter-spacing="1">Hotline</text>
+
+</svg>

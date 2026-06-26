@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Lewis Events & Marketing — Estelle Ankrah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Events grid */
+    .events-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .event-tile {
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .event-tile:nth-child(2n) { border-right: none; }
+    .event-tile:hover { background: var(--off); }
+    .event-tile--upload { cursor: pointer; }
+
+    .event-tile-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+      background: var(--off);
+      border-bottom: 1px solid var(--rule);
+    }
+    .event-tile-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .event-tile:hover .event-tile-img img { transform: scale(1.04); }
+
+    /* Photo strip inside the tile image area */
+    .event-photo-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 100%; height: 100%;
+    }
+    .event-photo-strip img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.4s ease;
+    }
+    .event-photo-strip img:last-child { border-right: none; }
+    .event-tile:hover .event-photo-strip img { transform: scale(1.04); }
+
+    .event-tile-body {
+      padding: 28px 32px 36px;
+    }
+    .event-tile-date {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .event-tile-name {
+      font-family: var(--font-head);
+      font-size: clamp(20px, 2vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .event-tile-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* Upload placeholder tile */
+    .event-upload-ph {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--muted);
+    }
+    .event-upload-ph span {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Suffolk Show gallery */
+    .suffolk-gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 2px;
+      background: var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .suffolk-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .suffolk-gallery .gallery-main {
+      grid-row: 1 / 3;
+      min-height: 480px;
+    }
+    .suffolk-gallery .gallery-sm {
+      min-height: 238px;
+    }
+
+    @media (max-width: 768px) {
+      .events-grid { grid-template-columns: 1fr; }
+      .event-tile { border-right: none; }
+      .suffolk-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; }
+      .suffolk-gallery .gallery-main { grid-row: auto; }
+    }
+  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://estelleankrah.github.io/jl-events.html">
+  <meta property="og:title" content="John Lewis Events — Estelle Ankrah">
+  <meta property="og:description" content="Events and Marketing Coordinator at John Lewis Ipswich — Suffolk Show, Morris & Co workshop, Santa's Tea Party, Christmas Tablescaping.">
+  <meta property="og:image" content="https://estelleankrah.github.io/projects/jl-events/jl-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="John Lewis Events — Estelle Ankrah">
+  <meta name="twitter:description" content="Events and Marketing Coordinator at John Lewis Ipswich — Suffolk Show, Morris & Co workshop, Santa's Tea Party, Christmas Tablescaping.">
+  <meta name="twitter:image" content="https://estelleankrah.github.io/projects/jl-events/jl-logo.png">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-nav">
+    <a href="index.html" class="nav-logo">Estelle Ankrah</a>
+    <nav class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#work" style="color:var(--ink)">Work</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#education">Education</a>
+      <a href="reading.html">Reading</a>
+      <a href="about-me.html#cv">CV</a>
+    </nav>
+    <a href="mailto:estelleankrah1@gmail.com" class="nav-contact">Contact</a>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <a href="index.html#work" class="proj-page-back" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s">← Back to Work</a>
+    <p class="page-hero-label">John Lewis &amp; Partners · Events &amp; Marketing</p>
+    <h1>
+      <span class="wt-light">Events </span><span class="wt-bold">Coordinated</span><br>
+      <span class="wt-light">at </span><span class="wt-bold">John Lewis</span>
+    </h1>
+    <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);max-width:560px;line-height:1.75;margin-top:20px">As Events and Marketing Coordinator at John Lewis Ipswich, Estelle planned, coordinated and delivered a range of in-store and offsite events, from county show activations and brand collaborations to seasonal campaigns and nursery events.</p>
+  </div>
+
+  <!-- EVENTS GRID -->
+  <div class="events-grid">
+
+    <!-- SUFFOLK SHOW -->
+    <a href="#suffolk" class="event-tile">
+      <div class="event-tile-img">
+        <div class="event-photo-strip">
+          <img src="projects/jl-events/suffolk-show/888795a7-bfdb-4431-a7b4-06e6b26f89c5.JPG" alt="Suffolk Show, John Lewis stand">
+          <img src="projects/jl-events/suffolk-show/921046e6-19c5-418e-b47c-f68f58192b64.JPG" alt="Suffolk Show, styled interior">
+          <img src="projects/jl-events/suffolk-show/c842cfc0-a9d9-4c9f-916c-ed7757299851.JPG" alt="Suffolk Show, JL × Sanderson">
+        </div>
+      </div>
+      <div class="event-tile-body">
+        <p class="event-tile-date">28–29 May 2025 · Suffolk County Showground</p>
+        <h2 class="event-tile-name">The Suffolk Show</h2>
+        <p class="event-tile-desc">John Lewis Ipswich pop-up at the Suffolk County Show, coordinating the brand stand, product display, home interiors showcase featuring the JL × Sanderson collaboration, and the My John Lewis loyalty activation.</p>
+      </div>
+    </a>
+
+    <!-- MORRIS & CO -->
+    <a href="#morris" class="event-tile">
+      <div class="event-tile-img">
+        <div class="event-photo-strip">
+          <img src="projects/jl-events/morris-co/setup-1.jpg" alt="Morris & Co workshop setup">
+          <img src="projects/jl-events/morris-co/poster.jpg" alt="Morris & Co Christmas Printing Workshop poster">
+          <img src="projects/jl-events/morris-co/setup-2.jpg" alt="Morris & Co workshop setup 2">
+        </div>
+      </div>
+      <div class="event-tile-body">
+        <p class="event-tile-date">27 November 2024 · John Lewis Ipswich</p>
+        <h2 class="event-tile-name">Morris &amp; Co Christmas Printing Workshop</h2>
+        <p class="event-tile-desc">Ticketed in-store workshop event in partnership with Morris &amp; Co, coordinating three sessions at 10AM, 12PM and 3PM. Guests designed and printed their own Christmas items using Morris &amp; Co's iconic Strawberry Thief and Pimpernel patterns. Tickets £10 including a complimentary drink.</p>
+      </div>
+    </a>
+
+    <!-- SANTA'S TEA PARTY 2024 -->
+    <a href="#santa" class="event-tile">
+      <div class="event-tile-img">
+        <div class="event-photo-strip">
+          <img src="projects/jl-events/santas-tea-party/PHOTO-2026-06-26-01-06-09 2.jpg" alt="Santa's Tea Party 2024 — team photo">
+          <img src="projects/jl-events/santas-tea-party/PHOTO-2026-06-26-01-06-08.jpg" alt="Santa's Tea Party 2024 — families at tables">
+          <img src="projects/jl-events/santas-tea-party/PHOTO-2026-06-26-01-06-09.jpg" alt="Santa's Tea Party 2024 — room setup">
+        </div>
+      </div>
+      <div class="event-tile-body">
+        <p class="event-tile-date">2024 · John Lewis Ipswich</p>
+        <h2 class="event-tile-name">Santa's Tea Party 2024</h2>
+        <p class="event-tile-desc">Seasonal in-store event bringing families together with a festive tea party experience, coordinating the event programme, vendor liaison, product curation, and on-the-day operations.</p>
+      </div>
+    </a>
+
+    <!-- CHRISTMAS TABLESCAPING 2024 -->
+    <a href="#tablescaping" class="event-tile">
+      <div class="event-tile-img">
+        <div class="event-photo-strip">
+          <img src="projects/jl-events/christmas-tablescaping/PHOTO-2026-06-26-01-06-08.jpg" alt="Christmas Tablescaping 2024, event room">
+          <img src="projects/jl-events/christmas-tablescaping/PHOTO-2026-06-26-01-06-09.jpg" alt="Christmas at John Lewis tablescaping demonstration">
+          <img src="projects/jl-events/christmas-tablescaping/PHOTO-2026-06-26-01-06-09 2.jpg" alt="Christmas corner lounge setup">
+        </div>
+      </div>
+      <div class="event-tile-body">
+        <p class="event-tile-date">2024 · John Lewis Ipswich</p>
+        <h2 class="event-tile-name">Christmas Tablescaping 2024</h2>
+        <p class="event-tile-desc">Customer event showcasing John Lewis's festive tableware and home collections through a live tablescaping demonstration, coordinating the event space, product selection, styling, and full customer experience.</p>
+      </div>
+    </a>
+
+    <!-- BABY & NURSERY -->
+    <div class="event-tile event-tile--upload" onclick="triggerEventUpload('baby')" style="grid-column:1/-1">
+      <div style="display:grid;grid-template-columns:1fr 1fr">
+        <div class="event-tile-img" style="border-bottom:none">
+          <img src="projects/jl-events/all-things-baby.jpg" alt="All Things Baby, John Lewis Ipswich" style="display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+          <p style="position:absolute;bottom:8px;right:10px;font-family:var(--font-body);font-size:9px;letter-spacing:0.06em;color:rgba(255,255,255,0.55);text-shadow:0 1px 3px rgba(0,0,0,0.4);pointer-events:none">Photo: Sabina Weston / Drapers</p>
+        </div>
+        <div class="event-tile-body" style="display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--rule)">
+          <p class="event-tile-date">John Lewis Ipswich · Nursery Department</p>
+          <h2 class="event-tile-name">Baby &amp; Nursery Events</h2>
+          <p class="event-tile-desc">Coordinating appointment scheduling, vendor liaison, and event delivery across the baby and nursery department — managing supplier demonstrations, customer consultations, and compliance paperwork throughout the year.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SUFFOLK SHOW GALLERY -->
+  <section id="suffolk" style="border-bottom:1px solid var(--rule)">
+    <!-- Official JL Suffolk Show leaflet -->
+    <div style="border-bottom:1px solid var(--rule);overflow:hidden">
+      <img src="projects/jl-events/suffolk-show/suffolk-show-leaflet.png" alt="John Lewis Ipswich at The Suffolk Show — Coastal Living, Curated For You. 28–29 May 2025" style="width:100%;display:block">
+    </div>
+    <div style="padding:56px 40px 40px;border-bottom:1px solid var(--rule)">
+      <p class="small-caps-label">In Detail</p>
+      <h2 style="font-family:var(--font-head);font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-0.025em">The Suffolk Show</h2>
+      <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);max-width:640px;line-height:1.75;margin-top:16px">John Lewis Ipswich at the Suffolk County Show, 28–29 May 2025. A two-day brand activation at one of England's oldest county shows, showcasing the breadth of the John Lewis offer, from the JL × Sanderson home interiors collaboration and interior design consultation to outdoor living, pets, and beauty. Estelle coordinated logistics, stand setup, product curation, and the My John Lewis loyalty engagement on the day.</p>
+    </div>
+
+    <div class="suffolk-gallery">
+      <div class="gallery-main">
+        <img src="projects/jl-events/suffolk-show/921046e6-19c5-418e-b47c-f68f58192b64.JPG" alt="Suffolk Show, John Lewis styled home interior display">
+      </div>
+      <div class="gallery-sm">
+        <img src="projects/jl-events/suffolk-show/c842cfc0-a9d9-4c9f-916c-ed7757299851.JPG" alt="John Lewis × Sanderson display">
+      </div>
+      <div class="gallery-sm">
+        <img src="projects/jl-events/suffolk-show/b242de7f-184c-4117-8d3d-053ec45dba74.JPG" alt="Interior design moodboard">
+      </div>
+      <div class="gallery-sm">
+        <img src="projects/jl-events/suffolk-show/888795a7-bfdb-4431-a7b4-06e6b26f89c5.JPG" alt="John Lewis stand signage and products">
+      </div>
+      <div class="gallery-sm">
+        <img src="projects/jl-events/suffolk-show/92c5c7b7-5b94-492d-9600-dd8c0064d893.JPG" alt="Product display, outdoor and summer living">
+      </div>
+    </div>
+
+    <!-- Additional photos row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px;background:var(--rule);border-top:2px solid var(--rule)">
+      <img src="projects/jl-events/suffolk-show/844dfbe9-9daa-4867-955c-06945d57622f.JPG" alt="My John Lewis loyalty desk" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block">
+      <img src="projects/jl-events/suffolk-show/05b85e9e-b9b8-4dfb-b230-ddcfcccf6d19.JPG" alt="Interior vignette, styled living space" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block">
+      <img src="projects/jl-events/suffolk-show/5d67af17-6ce6-4537-817c-9e0ad317680b.JPG" alt="Product shelving, baby and pet products" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block">
+      <img src="projects/jl-events/suffolk-show/de950a12-c5c0-48dd-96e3-2504b5d5405a.JPG" alt="Suffolk Show exterior" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block">
+    </div>
+  </section>
+
+  <!-- MORRIS & CO GALLERY -->
+  <section id="morris" style="border-bottom:1px solid var(--rule)">
+    <div style="padding:56px 40px 40px;border-bottom:1px solid var(--rule)">
+      <p class="small-caps-label">In Detail</p>
+      <h2 style="font-family:var(--font-head);font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-0.025em">Morris &amp; Co Christmas Printing Workshop</h2>
+      <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);max-width:640px;line-height:1.75;margin-top:16px">Three ticketed sessions on 27 November 2024 at John Lewis Ipswich, in partnership with Morris &amp; Co. Guests designed and printed their own Christmas items using Strawberry Thief and Pimpernel patterns, with a complimentary drink on arrival. Estelle coordinated the full event: vendor liaison, session scheduling, in-store setup, visual merchandising, and on-the-day operations.</p>
+    </div>
+
+    <!-- Video slideshow -->
+    <div style="background:#0a0a0a;border-bottom:1px solid var(--rule);position:relative;overflow:hidden">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        style="width:100%;display:block;max-height:80vh;object-fit:cover"
+        controls>
+        <source src="projects/jl-events/morris-co/workshop-slideshow.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Photo trio -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--rule)">
+      <img src="projects/jl-events/morris-co/poster.jpg" alt="Morris & Co Christmas Printing Workshop poster" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="projects/jl-events/morris-co/setup-1.jpg" alt="Morris & Co workshop setup" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="projects/jl-events/morris-co/setup-2.jpg" alt="Morris & Co workshop setup 2" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+    </div>
+
+    <!-- THANK YOU CARD -->
+    <div style="padding:56px 40px 40px;border-top:1px solid var(--rule)">
+      <p class="small-caps-label">The Keepsake</p>
+      <h3 style="font-family:var(--font-head);font-size:clamp(22px,2.5vw,34px);font-weight:800;letter-spacing:-0.02em;margin-top:12px">A Personal Thank You</h3>
+      <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);max-width:620px;line-height:1.75;margin-top:16px">When each guest finished their block printing session, they left with more than just their print. Every participant received a branded thank you card, designed in Morris &amp; Co's signature style — rich botanical patterns, heritage typography, and the dual logos of Morris &amp; Co and John Lewis &amp; Partners. A personal keepsake to remember the workshop, mark the collaboration, and take a piece of the craft home.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule);padding:0 40px 56px;background:transparent">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <img src="projects/jl-events/morris-co/thankyou-front.jpg" alt="Morris & Co x John Lewis thank you card, front" style="width:100%;display:block;border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,0.10)">
+        <p style="font-family:var(--font-body);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)">Front — 27.11.24 · Morris &amp; Co × John Lewis &amp; Partners</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <img src="projects/jl-events/morris-co/thankyou-back.jpg" alt="Morris & Co x John Lewis thank you card, back" style="width:100%;display:block;border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,0.10)">
+        <p style="font-family:var(--font-body);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)">Back — personalised message, Great Britain postcard format</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SANTA'S TEA PARTY GALLERY -->
+  <section id="santa" style="border-bottom:1px solid var(--rule)">
+    <div style="padding:56px 40px 40px;border-bottom:1px solid var(--rule)">
+      <p class="small-caps-label">In Detail</p>
+      <h2 style="font-family:var(--font-head);font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-0.025em">Santa's Tea Party 2024</h2>
+      <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);max-width:640px;line-height:1.75;margin-top:16px">A festive family event held at John Lewis Ipswich, bringing together the in-store café space, seasonal food and drink, and a visit from Santa. Estelle coordinated the full event — room layout and dressing, vendor liaison, food display styling, and on-the-day operations alongside the John Lewis team.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule)">
+      <img src="projects/jl-events/santas-tea-party/PHOTO-2026-06-26-01-06-09 2.jpg" alt="Santa's Tea Party 2024 — team in Christmas outfits" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="projects/jl-events/santas-tea-party/PHOTO-2026-06-26-01-06-08.jpg" alt="Santa's Tea Party 2024 — families at Christmas tables" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="projects/jl-events/santas-tea-party/PHOTO-2026-06-26-01-06-08 2.jpg" alt="Santa's Tea Party 2024 — food table setup" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="projects/jl-events/santas-tea-party/PHOTO-2026-06-26-01-06-09.jpg" alt="Santa's Tea Party 2024 — room dressed and ready" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+    </div>
+  </section>
+
+  <!-- CHRISTMAS TABLESCAPING GALLERY -->
+  <section id="tablescaping" style="border-bottom:1px solid var(--rule)">
+    <div style="padding:56px 40px 40px;border-bottom:1px solid var(--rule)">
+      <p class="small-caps-label">In Detail</p>
+      <h2 style="font-family:var(--font-head);font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-0.025em">Christmas Tablescaping 2024</h2>
+      <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);max-width:640px;line-height:1.75;margin-top:16px">A customer event at John Lewis Ipswich showcasing the festive tableware and home collection through a live expert tablescaping demonstration. Estelle coordinated the full event setup: styling the venue with the Christmas at John Lewis backdrop, selecting and laying out the product range, organising the room layout, and managing the customer experience throughout.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule)">
+      <img src="projects/jl-events/christmas-tablescaping/PHOTO-2026-06-26-01-06-09.jpg" alt="Christmas at John Lewis tablescaping demonstration" style="width:100%;height:100%;object-fit:cover;display:block;min-height:420px">
+      <div style="display:grid;grid-template-rows:1fr 1fr;gap:2px;background:var(--rule)">
+        <img src="projects/jl-events/christmas-tablescaping/PHOTO-2026-06-26-01-06-08.jpg" alt="Christmas Tablescaping event room, red tablecloths" style="width:100%;height:100%;object-fit:cover;display:block">
+        <img src="projects/jl-events/christmas-tablescaping/PHOTO-2026-06-26-01-06-09 2.jpg" alt="Christmas corner lounge, fireplace and tree" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule);border-top:2px solid var(--rule)">
+      <img src="projects/jl-events/christmas-tablescaping/PHOTO-2026-06-26-01-06-09 3.jpg" alt="Christmas Tablescaping detail" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block">
+      <img src="projects/jl-events/christmas-tablescaping/PHOTO-2026-06-26-01-06-09 4.jpg" alt="Christmas Tablescaping detail 2" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block">
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <div class="footer-cta-top">
+      <p class="footer-cta-prompt">Have a project in mind?</p>
+      <div class="footer-social-links">
+        <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:estelleankrah1@gmail.com">Email</a>
+      </div>
+    </div>
+    <a href="mailto:estelleankrah1@gmail.com" class="footer-name-huge">ESTELLE<br>ANKRAH</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Estelle Ankrah. All rights reserved.</p>
+    </div>
+  </section>
+
+  <div class="floating-dock">
+    <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:estelleankrah1@gmail.com" class="dock-item" title="Email">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="cv.html" class="dock-btn">Download CV</a>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    function triggerEventUpload(key) {
+      document.getElementById(`${key}-file`).click();
+    }
+    function loadEventImg(input, key) {
+      const file = input.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      const img = document.getElementById(`${key}-img`);
+      const ph  = document.getElementById(`${key}-ph`);
+      img.src = url; img.style.display = 'block';
+      if (ph) ph.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

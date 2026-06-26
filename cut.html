@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CUT — Wear Your Morals — Estelle Ankrah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .cut-hero {
+      padding-top: var(--nav-h);
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      overflow: hidden;
+      background: #0d0d0d;
+    }
+    .cut-hero-bg {
+      position: absolute; inset: 0;
+      overflow: hidden;
+    }
+    .cut-hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+    .cut-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 56px 40px;
+      color: #fff;
+    }
+    .cut-tagline {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(40px, 7vw, 96px);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .cut-tagline span { color: #e86f3a; }
+
+    /* Render render grid */
+    .render-upload-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+    .render-upload-cell {
+      aspect-ratio: 16/10;
+      background: var(--off);
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .render-upload-cell:nth-child(2n) { border-right: none; }
+    .render-upload-cell:hover { background: #eeede9; }
+    .render-upload-cell img.loaded {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .render-upload-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    /* Brand values */
+    .brand-spine {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--rule);
+    }
+    .brand-spine-item {
+      padding: 40px 32px;
+      border-right: 1px solid var(--rule);
+    }
+    .brand-spine-item:last-child { border-right: none; }
+    .brand-spine-number {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .brand-spine-name {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .brand-spine-desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Event schedule */
+    .schedule-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-top: 1px solid var(--rule);
+      align-items: start;
+    }
+    .schedule-item:last-child { border-bottom: 1px solid var(--rule); }
+    .schedule-time {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+    .schedule-label {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .schedule-note {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Partner logos strip */
+    .partners-strip {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding: 40px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .partner-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .partner-name {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+
+    @media (max-width: 900px) {
+      .brand-spine { grid-template-columns: 1fr 1fr; }
+      .brand-spine-item:nth-child(2) { border-right: none; }
+      .brand-spine-item:nth-child(3), .brand-spine-item:nth-child(4) { border-top: 1px solid var(--rule); }
+      .render-upload-grid { grid-template-columns: 1fr; }
+      .render-upload-cell { border-right: none; }
+    }
+    @media (max-width: 640px) {
+      .brand-spine { grid-template-columns: 1fr; }
+      .brand-spine-item { border-right: none; border-bottom: 1px solid var(--rule); }
+      .cut-hero-overlay { padding: 32px 20px; }
+    }
+  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://estelleankrah.github.io/cut.html">
+  <meta property="og:title" content="CUT — Wear Your Morals — Estelle Ankrah">
+  <meta property="og:description" content="Brand launch and event coordination for CUT denim brand at LCF: press strategy, marketing materials, and promotional production.">
+  <meta property="og:image" content="https://estelleankrah.github.io/projects/cut/flyer.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CUT — Wear Your Morals — Estelle Ankrah">
+  <meta name="twitter:description" content="Brand launch and event coordination for CUT denim brand at LCF: press strategy, marketing materials, and promotional production.">
+  <meta name="twitter:image" content="https://estelleankrah.github.io/projects/cut/flyer.jpg">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-nav">
+    <a href="index.html" class="nav-logo">Estelle Ankrah</a>
+    <nav class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#work" style="color:var(--ink)">Work</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="reading.html">Reading</a>
+      <a href="about-me.html#cv">CV</a>
+    </nav>
+    <a href="mailto:estelleankrah1@gmail.com" class="nav-contact">Contact</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="cut-hero">
+    <div class="cut-hero-bg">
+      <img src="projects/cut/flyer.jpg" alt="CUT, Wear Your Morals">
+    </div>
+    <a href="index.html#work" class="proj-page-back" style="position:absolute;top:calc(var(--nav-h)+20px);left:40px;z-index:3;color:rgba(255,255,255,0.7)">← Back to Work</a>
+    <div class="cut-hero-overlay">
+      <p style="font-family:var(--font-body);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:16px">UAL London College of Fashion · Brand Launch · 2021</p>
+      <h1 class="cut-tagline">Wear Your<br><span>Morals.</span></h1>
+      <div class="proj-page-tags">
+        <span class="proj-page-tag">Brand Launch</span>
+        <span class="proj-page-tag">Knife Crime Awareness</span>
+        <span class="proj-page-tag">Sustainable Denim</span>
+        <span class="proj-page-tag">Event Production</span>
+        <span class="proj-page-tag">Press Strategy</span>
+        <span class="proj-page-tag">Coal Drops Yard</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <div class="proj-overview">
+    <div class="prose">
+      <h2 class="section-subhead">The Brand</h2>
+      <p>CUT is a purpose-driven sustainable denim brand built around a single mission: using fashion to raise awareness about knife crime in the UK. Developed at UAL London College of Fashion, CUT partnered with Blackhorse Lane Ateliers, East London's most celebrated denim manufacturer, to produce knife-safe denim as both a product and a statement.</p>
+      <p>The brand's tagline, "WEAR YOUR MORALS.", positions CUT at the intersection of fashion, community and activism, a brand that believes what you wear communicates what you stand for. The campaign targeted a nationwide UK audience, acknowledging that knife crime is not exclusively a London issue but one that resonates across cities and communities.</p>
+      <p>I led the brand report, press strategy, event production, influencer strategy, social media campaign, and website design for the CUT launch, delivered in partnership with the Foundation for Future London, Catalyst in Communities, Centre for Sustainable Fashion, and UAL London College of Fashion. Online engagement increased 20% through the launch campaign.</p>
+    </div>
+    <aside class="project-sidebar">
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Brand</p>
+        <p class="sidebar-row-val">CUT</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Mission</p>
+        <p class="sidebar-row-val">Knife crime awareness through sustainable, knife-safe denim</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Manufacturer</p>
+        <p class="sidebar-row-val">Blackhorse Lane Ateliers, Coal Drops Yard</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Launch</p>
+        <p class="sidebar-row-val">22 July 2021, 6PM–8PM · Coal Drops Yard, London N1C 4DQ</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Disciplines</p>
+        <p class="sidebar-row-val">Brand Strategy · Event Production · Press Strategy · Influencer Relations · Social Media · Website Design</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Hashtag</p>
+        <p class="sidebar-row-val">#MAKETHECUT</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- BRAND SPINE -->
+  <div class="brand-spine">
+    <div class="brand-spine-item">
+      <p class="brand-spine-number">Maker</p>
+      <p class="brand-spine-name">Blackhorse Lane Ateliers</p>
+      <p class="brand-spine-desc">East London's master denim manufacturer, producing knife-safe denim, the material foundation and ethical backbone of the brand.</p>
+    </div>
+    <div class="brand-spine-item">
+      <p class="brand-spine-number">Product</p>
+      <p class="brand-spine-name">Knife Safe</p>
+      <p class="brand-spine-desc">The product proposition: denim engineered to be protective. Fashion as armour, literally and symbolically.</p>
+    </div>
+    <div class="brand-spine-item">
+      <p class="brand-spine-number">Ethos</p>
+      <p class="brand-spine-name">LWFBW</p>
+      <p class="brand-spine-desc">Living Without Fear Before the World, the brand's emotional core. A statement of intent for young people navigating life in the UK.</p>
+    </div>
+    <div class="brand-spine-item">
+      <p class="brand-spine-number">Community</p>
+      <p class="brand-spine-name">Through Unity</p>
+      <p class="brand-spine-desc">The community belief: that collective action and shared values are the foundation for change. CUT is a brand built for and by its community.</p>
+    </div>
+  </div>
+
+  <!-- MISSION + REPORT -->
+  <div class="slide-section">
+    <p class="slide-section-label">The Mission</p>
+    <span class="highlight-label">Estelle's Work</span>
+    <h2 class="slide-section-title">Fashion as Activism</h2>
+    <p class="slide-section-desc">CUT's brand centres around knife crime as a social issue with deep cultural significance in the UK. The campaign was designed not simply to sell jeans but to raise awareness, start conversations, and create community around an issue that disproportionately affects young people. By making the product itself knife-safe, CUT collapsed the distance between fashion and lived experience.</p>
+    <div class="slides-two">
+      <div>
+        <img src="projects/cut/mission.jpg" alt="CUT, The Mission" class="slide-img">
+        <p class="slide-caption">The Mission: CUT uses sustainable denim to raise awareness about knife crime in the UK</p>
+      </div>
+      <div>
+        <img src="projects/cut/report-cover.jpg" alt="CUT Brand Report, Estelle Ankrah" class="slide-img">
+        <p class="slide-caption">CUT Brand Report by Estelle Ankrah, BA (Hons) Fashion PR and Communications, Blackhorse Lane Ateliers · Knife Safe · LWFBW · Through Unity</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENT SPACE RENDERS -->
+  <div class="slide-section" style="background:var(--off)">
+    <p class="slide-section-label">Event Design</p>
+    <span class="highlight-label">Estelle's Work</span>
+    <h2 class="slide-section-title">Event Space Concept</h2>
+    <p class="slide-section-desc">The event space at Blackhorse Lane Ateliers, Coal Drops Yard was designed around the brand's sustainable, community-led identity: exposed brick walls, a living green wall with bar, an indoor tree with curved seating, and denim displayed throughout as both product and art object.</p>
+  </div>
+
+  <div class="render-upload-grid">
+    <div class="render-upload-cell" style="cursor:default">
+      <img src="projects/cut/render-1.jpg" alt="CUT event space, bar and living green wall" class="loaded">
+    </div>
+    <div class="render-upload-cell" style="cursor:default">
+      <img src="projects/cut/render-2.jpg" alt="CUT event space, main hall with tree and curved seating" class="loaded">
+    </div>
+    <div class="render-upload-cell" style="cursor:default">
+      <img src="projects/cut/render-3.jpg" alt="CUT denim checkout area" class="loaded">
+    </div>
+    <div class="render-upload-cell" style="cursor:default">
+      <img src="projects/cut/render-4.jpg" alt="CUT clothing rails display wall" class="loaded">
+    </div>
+  </div>
+
+  <!-- WINDOW DISPLAY RENDER -->
+  <div style="border-bottom:1px solid var(--rule)">
+    <img src="projects/cut/render-mirror.jpg" alt="CUT window display concept" style="width:100%;display:block;object-fit:cover">
+  </div>
+
+  <!-- THE LAUNCH FLYER -->
+  <div class="slide-section">
+    <p class="slide-section-label">The Launch</p>
+    <h2 class="slide-section-title">22 July 2021, Coal Drops Yard</h2>
+    <p class="slide-section-desc">The CUT launch event was held at Blackhorse Lane Ateliers, Unit 32, Lower Stable Street, Coal Drops Yard on 22 July 2021, 6PM–8PM. The evening featured live music from Zoe Kypri, drinks, food, and a panel debate on knife crime featuring Stephen Barnabis. The event was supported by four institutional partners and was run on behalf of info@projectcut.co.uk.</p>
+    <div class="slides-two">
+      <div>
+        <img src="projects/cut/flyer.jpg" alt="CUT Launch Event Flyer, 22 July 2021" class="slide-img">
+        <p class="slide-caption">Official launch flyer: 22 July 2021, 6PM–8PM, Coal Drops Yard, London N1C 4DQ. Live music: Zoe Kypri. Panel: Stephen Barnabis.</p>
+      </div>
+      <div>
+        <div class="schedule-timeline">
+          <div class="schedule-item">
+            <span class="schedule-time">6:00PM</span>
+            <div><p class="schedule-label">Welcome Drinks</p><p class="schedule-note">Natalie Shadwell poem read aloud</p></div>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">6:15PM</span>
+            <div><p class="schedule-label">Film Screening</p></div>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">6:20PM</span>
+            <div><p class="schedule-label">Panel Debate</p><p class="schedule-note">Featuring Stephen Barnabis, knife crime awareness</p></div>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">7:00PM</span>
+            <div><p class="schedule-label">Live Music</p><p class="schedule-note">Zoe Kypri</p></div>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">7:15PM</span>
+            <div><p class="schedule-label">Charity Auction</p></div>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">7:45PM</span>
+            <div><p class="schedule-label">Networking</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTNERS -->
+  <div class="partners-strip">
+    <p class="partner-label">Partners</p>
+    <p class="partner-name">Foundation for Future London</p>
+    <p class="partner-name">Catalyst in Communities</p>
+    <p class="partner-name">UAL London College of Fashion</p>
+    <p class="partner-name">Centre for Sustainable Fashion</p>
+    <p class="partner-name">Blackhorse Lane Ateliers</p>
+  </div>
+
+  <!-- PRESS & INFLUENCER -->
+  <div class="slide-section" style="background:var(--off)">
+    <p class="slide-section-label">Press &amp; Influencer</p>
+    <span class="highlight-label">Estelle's Work</span>
+    <h2 class="slide-section-title">Media Strategy</h2>
+    <p class="slide-section-desc">Press coverage was targeted across national and community titles: Waltham Forest Echo, Sublime Magazine, The Guardian, Kiosk NC1, and BBC Radio London, a deliberately mixed strategy spanning lifestyle press and hyperlocal community journalism to match the brand's dual identity as fashion product and social campaign.</p>
+    <div class="slides-two">
+      <div>
+        <img src="projects/cut/influencer-melissa.jpg" alt="Melissa's Wardrobe, CUT influencer strategy" class="slide-img">
+        <p class="slide-caption">Influencer strategy: Melissa's Wardrobe (197k followers, Stormzy's stylist). Avg 15,000 likes/post. Promoting CUT via #MAKETHECUT and "how to style" content on both her channels and CUT's social platforms.</p>
+      </div>
+      <div>
+        <img src="projects/cut/consumer-moodboard.jpg" alt="CUT consumer moodboard, Free Spirit, Tech Savy, i-D, GQ" class="slide-img">
+        <p class="slide-caption">Consumer and culture moodboard: Free Spirit, Tech Savy, i-D, GQ, The Guardian. CUT's audience is culturally engaged, community-driven, and purpose-led.</p>
+      </div>
+    </div>
+    <div class="slides-two" style="margin-top:24px">
+      <div>
+        <img src="projects/cut/cut-target-press.png" alt="CUT Target Press" class="slide-img">
+        <p class="slide-caption">Target press: Waltham Forest Echo, Sublime Magazine, The Guardian, local to national</p>
+      </div>
+      <div>
+        <img src="projects/cut/cut-target-press-2.png" alt="CUT Social Strategy" class="slide-img">
+        <p class="slide-caption">Target socials: Instagram, Twitter (#MAKETHECUT), TikTok, strategy and platform rationale</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEBSITE DESIGN -->
+  <div class="slide-section">
+    <p class="slide-section-label">Digital</p>
+    <span class="highlight-label">Estelle's Work</span>
+    <h2 class="slide-section-title">Website &amp; Digital Design</h2>
+    <p class="slide-section-desc">I designed the full website and digital presence for CUT, including a Coming Soon page launching the FW21 collection with the brand's ethos: "Strong silhouettes, purpose and sustainability at heart." The homepage design carried the tagline "WEAR YOUR MORALS.", built to communicate the brand's mission before anything else.</p>
+    <div class="slides-two">
+      <div>
+        <img src="projects/cut/website-coming-soon.jpg" alt="CUT Coming Soon page, FW21 collection" class="slide-img">
+        <p class="slide-caption">Coming Soon page: FW21 collection launch, "Strong silhouettes, purpose and sustainability at heart." with Blackhorse Lane Ateliers denim.</p>
+      </div>
+      <div>
+        <img src="projects/cut/website-homepage.jpg" alt="CUT homepage, WEAR YOUR MORALS." class="slide-img">
+        <p class="slide-caption">Homepage design: "WEAR YOUR MORALS.", the brand's manifesto as its entry point. Designed in Squarespace.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRESS RELEASE -->
+  <div class="slide-section" style="background:var(--off)">
+    <p class="slide-section-label">Written Work</p>
+    <span class="highlight-label">Estelle's Work</span>
+    <h2 class="slide-section-title">Press Release</h2>
+    <p class="slide-section-desc">Written by Estelle Ankrah for the CUT launch event, 9 October 2021 at Motel Studios, Shoreditch Hoxton. The release positions CUT's brand story — knife crime awareness, community, sustainability — and outlines the evening's programme for press and guests.</p>
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:start;margin-top:8px">
+      <a href="projects/cut/press-release.pdf" target="_blank" rel="noopener" style="display:block;border-radius:6px;overflow:hidden;border:1px solid var(--rule);transition:opacity 0.2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+        <img src="projects/cut/press-release-preview.jpg" alt="CUT Press Release preview" style="width:100%;display:block">
+      </a>
+      <div style="display:flex;flex-direction:column;gap:16px;padding-top:8px">
+        <p style="font-family:var(--font-head);font-size:clamp(16px,1.8vw,22px);font-weight:700;letter-spacing:-0.015em;line-height:1.2">Meet the brand CUT-ing their way to the top.</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <p style="font-family:var(--font-body);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)">For release: 30 October 2021 · 11:23 AM UK</p>
+          <p style="font-family:var(--font-body);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)">Contact: estelle@cut.co.uk</p>
+        </div>
+        <a href="projects/cut/press-release.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--white);background:var(--ink);text-decoration:none;padding:10px 20px;border-radius:999px;width:fit-content;transition:opacity 0.2s" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Read press release
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEXT -->
+  <a href="project.html?p=raven" class="proj-next">
+    <div>
+      <p class="proj-next-label">Next Project</p>
+      <p class="proj-next-name">WEARERAVEN PR</p>
+    </div>
+    <span class="proj-next-arrow">→</span>
+  </a>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <div class="footer-cta-top">
+      <p class="footer-cta-prompt">Have a project in mind?</p>
+      <div class="footer-social-links">
+        <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:estelleankrah1@gmail.com">Email</a>
+      </div>
+    </div>
+    <a href="mailto:estelleankrah1@gmail.com" class="footer-name-huge">ESTELLE<br>ANKRAH</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Estelle Ankrah. All rights reserved.</p>
+    </div>
+  </section>
+
+  <div class="floating-dock">
+    <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:estelleankrah1@gmail.com" class="dock-item" title="Email">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="cv.html" class="dock-btn">Download CV</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

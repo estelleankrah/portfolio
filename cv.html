@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estelle Ankrah — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #111110;
+      --muted: #666;
+      --rule: #ddd;
+      --off: #f7f7f5;
+      
+    }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 13px;
+      color: var(--ink);
+      background: #f0ede8;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── Screen chrome ── */
+    .cv-chrome {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      gap: 24px;
+    }
+    .cv-chrome-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .cv-back {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .cv-back:hover { color: #fff; }
+    .cv-chrome-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.4);
+    }
+    .cv-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      background: #fff;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .cv-download:hover { background: #e8e8e4; }
+
+    /* ── A4 page ── */
+    .cv-wrap {
+      max-width: 794px;
+      margin: 32px auto;
+      background: #fff;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+    }
+
+    /* ── CV layout ── */
+    .cv-page {
+      padding: 56px 56px 64px;
+    }
+
+    /* Header */
+    .cv-header {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .cv-name {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .cv-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .cv-contact a { color: var(--muted); text-decoration: none; }
+    .cv-contact a:hover { color: var(--ink); text-decoration: underline; }
+
+    /* Sections */
+    .cv-section {
+      margin-bottom: 28px;
+    }
+    .cv-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* Profile */
+    .cv-profile {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    /* Experience + Education rows */
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 20px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cv-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .cv-entry-date {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      padding-top: 2px;
+    }
+    .cv-entry-body {}
+    .cv-entry-org {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 2px;
+    }
+    .cv-entry-role {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+    .cv-entry-desc {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.65;
+    }
+
+    /* Two-column bottom */
+    .cv-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 40px;
+    }
+    .cv-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .cv-list li {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.5;
+      padding-left: 12px;
+      position: relative;
+    }
+    .cv-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* ── Print styles ── */
+    @media print {
+      body { background: #fff; font-size: 11pt; }
+      .cv-chrome { display: none; }
+      .cv-wrap { max-width: 100%; margin: 0; box-shadow: none; }
+      .cv-page { padding: 32px 40px 48px; }
+      .cv-section { page-break-inside: avoid; }
+      .cv-entry { page-break-inside: avoid; }
+      a { color: inherit !important; text-decoration: none !important; }
+    }
+
+    @media (max-width: 640px) {
+      .cv-chrome { padding: 12px 20px; }
+      .cv-page { padding: 32px 24px 40px; }
+      .cv-entry { grid-template-columns: 1fr; }
+      .cv-entry-date { margin-bottom: 4px; }
+      .cv-two-col { grid-template-columns: 1fr; gap: 20px; }
+      .cv-name { font-size: 24px; }
+    }
+  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://estelleankrah.github.io/cv.html">
+  <meta property="og:title" content="CV — Estelle Ankrah">
+  <meta property="og:description" content="Fashion PR & Communications graduate. 5+ years across luxury PR, brand strategy, events, social media, and marketing.">
+  <meta property="og:image" content="https://estelleankrah.github.io/estelle-headshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CV — Estelle Ankrah">
+  <meta name="twitter:description" content="Fashion PR & Communications graduate. 5+ years across luxury PR, brand strategy, events, social media, and marketing.">
+  <meta name="twitter:image" content="https://estelleankrah.github.io/estelle-headshot.png">
+</head>
+<body>
+
+  <!-- Screen chrome (hidden on print) -->
+  <div class="cv-chrome">
+    <div class="cv-chrome-left">
+      <a href="index.html" class="cv-back">← Portfolio</a>
+      <span class="cv-chrome-label">Curriculum Vitae</span>
+    </div>
+    <button class="cv-download" onclick="window.print()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Save as PDF
+    </button>
+  </div>
+
+  <div class="cv-wrap">
+    <div class="cv-page">
+
+      <!-- Header -->
+      <header class="cv-header">
+        <h1 class="cv-name">Estelle Ankrah</h1>
+        <div class="cv-contact">
+          <span>estelleankrah1@gmail.com</span>
+          <span>linkedin.com/in/estelleankrah</span>
+          <span>London, UK</span>
+        </div>
+      </header>
+
+      <!-- Profile -->
+      <div class="cv-section">
+        <p class="cv-section-title">Profile</p>
+        <p class="cv-profile">Fashion PR and communications graduate from UAL London College of Fashion (First Class Honours) with 5+ years of experience across luxury fashion PR, brand strategy, retail events, social media, and marketing. I write clearly, document precisely, and manage competing stakeholder priorities under pressure. Currently applying for an LLM in Fashion Law at Queen Mary University of London (September 2026), building the legal foundation to work at the intersection of brand communications and brand protection.</p>
+      </div>
+
+      <!-- Experience -->
+      <div class="cv-section">
+        <p class="cv-section-title">Experience</p>
+
+        <div class="cv-entry">
+          <p class="cv-entry-date">Nov 2025 – Present</p>
+          <div class="cv-entry-body">
+            <p class="cv-entry-org">Tesco</p>
+            <p class="cv-entry-role">Off-Till Colleague Manager</p>
+            <ul class="cv-list" style="margin-top:6px">
+              <li>Promoted within six weeks for performance, reliability, and leadership potential.</li>
+              <li>Oversees day-to-day front-end operations including checkout management, till maintenance, and cash handling procedures.</li>
+              <li>Manages complex customer complaints and service recovery, resolving issues professionally to maintain satisfaction and loyalty.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <p class="cv-entry-date">Nov 2021 – Sept 2025</p>
+          <div class="cv-entry-body">
+            <p class="cv-entry-org">John Lewis &amp; Partners, Ipswich</p>
+            <p class="cv-entry-role">Nursery Advisor · Events &amp; Marketing Coordinator · JL Protect Plus F&amp;I Representative · Wellbeing Champion</p>
+            <ul class="cv-list" style="margin-top:6px">
+              <li>Balanced three roles simultaneously, demonstrating strong work ethic, adaptability, time management, and a commitment to delivering exceptional results.</li>
+              <li>Created and delivered high-impact in-store events, managed B2B partnerships and marketing campaigns, increasing customer engagement and footfall by 48.9% during peak trading, exceeding KPI.</li>
+              <li>Acted as Wellbeing Champion, promoting internal engagement initiatives across 200+ staff, demonstrating leadership and communication skills.</li>
+              <li>Recognised as a trusted brand ambassador, representing John Lewis with professionalism and aligning with its reputation for quality and customer excellence.</li>
+              <li>Introduced JL Protect+, Pay Monthly, and additional services, increasing sales value through consultative upselling.</li>
+            </ul>
+            <p class="cv-entry-role" style="margin-top:14px;margin-bottom:4px">Press Team Work Experience — July 2024</p>
+            <ul class="cv-list">
+              <li>Supported media and influencer relations to enhance brand visibility during high-profile campaigns.</li>
+              <li>Organised samples, liaised with journalists, and analysed competitor trends during Press Week.</li>
+              <li>Managed influencer gifting and created content for John Lewis PR social media accounts.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <p class="cv-entry-date">Jan 2022 – Jul 2023</p>
+          <div class="cv-entry-body">
+            <p class="cv-entry-org">Event Hotline Rentals, Accra, Ghana</p>
+            <p class="cv-entry-role">Social Media Manager Assistant</p>
+            <ul class="cv-list" style="margin-top:6px">
+              <li>Managed content scheduling and agency social media presence across concurrent client projects.</li>
+              <li>Led rebrand from existing identity to a contemporary aesthetic aligned with the agency's digital growth.</li>
+              <li>Grew Instagram engagement by 25% through targeted content strategy and Planoly scheduling.</li>
+              <li>Managed influencer gifting and drafted personalised outreach emails for clients including Tilly Hair GH.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <p class="cv-entry-date">Sept – Nov 2021</p>
+          <div class="cv-entry-body">
+            <p class="cv-entry-org">WEARERAVEN PR</p>
+            <p class="cv-entry-role">Social Media Intern</p>
+            <ul class="cv-list" style="margin-top:6px">
+              <li>Delivered strategic content planning and PR administration for a contemporary fashion agency.</li>
+              <li>Improved social media engagement rates by 20% through structured campaign scheduling and editorial accuracy.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <p class="cv-entry-date">Jul – Sept 2021</p>
+          <div class="cv-entry-body">
+            <p class="cv-entry-org">Dior Homme</p>
+            <p class="cv-entry-role">Press Intern</p>
+            <ul class="cv-list" style="margin-top:6px">
+              <li>Provided operational PR support for a global luxury fashion brand.</li>
+              <li>Maintained media relationships and supported timely stakeholder correspondence.</li>
+              <li>Assisted campaign execution, ensuring precision and brand consistency throughout.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <p class="cv-entry-date">May – Aug 2021</p>
+          <div class="cv-entry-body">
+            <p class="cv-entry-org">CUT — London College of Fashion</p>
+            <p class="cv-entry-role">Project &amp; Event Coordinator</p>
+            <ul class="cv-list" style="margin-top:6px">
+              <li>Coordinated end-to-end launch of an emerging denim brand, managing press content, marketing strategy, and promotional production.</li>
+              <li>Designed promotional materials that boosted online engagement by 20%.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Education -->
+      <div class="cv-section">
+        <p class="cv-section-title">Education</p>
+
+        <div class="cv-entry">
+          <p class="cv-entry-date">Sept 2026 (applying)</p>
+          <div class="cv-entry-body">
+            <p class="cv-entry-org">Queen Mary University of London</p>
+            <p class="cv-entry-role">LLM Fashion Law</p>
+            <ul class="cv-list" style="margin-top:6px">
+              <li>Intellectual Property</li>
+              <li>Consumer Law</li>
+              <li>Sustainability Regulation</li>
+              <li>Brand Ethics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <p class="cv-entry-date">2020 – 2023</p>
+          <div class="cv-entry-body">
+            <p class="cv-entry-org">UAL London College of Fashion</p>
+            <p class="cv-entry-role">BA (Hons) Fashion PR &amp; Communications — First Class Honours</p>
+            <ul class="cv-list" style="margin-top:6px">
+              <li>The only specialist undergraduate Fashion PR &amp; Communication course in the UK</li>
+              <li>Fashion PR &amp; Branding Principles</li>
+              <li>Fashion Cultures &amp; Histories</li>
+              <li>Reputation Management &amp; Corporate Strategy</li>
+              <li>Innovation in Communication</li>
+              <li>Crisis Communication Planning</li>
+              <li>Professional Practice Placement</li>
+              <li>Communication Project — final year independent practice</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <p class="cv-entry-date">2018 – 2020</p>
+          <div class="cv-entry-body">
+            <p class="cv-entry-org">Northgate Sixth Form</p>
+            <p class="cv-entry-role">A Levels: Law (B), Media (A), Psychology (C) · EPQ (B)</p>
+            <ul class="cv-list" style="margin-top:6px">
+              <li>Covered criminal law, contract law, tort, constitutional and administrative law, human rights, and legal theory</li>
+              <li>Participated in the Young Citizens Mock Trial programme — legal reasoning, case preparation, advocacy, and courtroom procedure</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <p class="cv-entry-date">2013 – 2018</p>
+          <div class="cv-entry-body">
+            <p class="cv-entry-org">St Alban's Catholic High School</p>
+            <p class="cv-entry-role">GCSEs including English &amp; Mathematics · Grades A*–C</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Skills + Certifications -->
+      <div class="cv-section">
+        <p class="cv-section-title">Skills &amp; Certifications</p>
+        <div class="cv-two-col">
+          <div>
+            <p style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#999;margin-bottom:10px">Core Skills</p>
+            <ul class="cv-list">
+              <li>Brand Strategy &amp; Narrative Development</li>
+              <li>Press &amp; Media Relations</li>
+              <li>Crisis Communications</li>
+              <li>Campaign Planning &amp; Execution</li>
+              <li>Influencer &amp; Stakeholder Management</li>
+              <li>Event Coordination &amp; Production</li>
+              <li>Contract &amp; Compliance Documentation</li>
+              <li>Social Media Strategy &amp; Content</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#999;margin-bottom:10px">Certifications &amp; Tools</p>
+            <ul class="cv-list">
+              <li>JL Protect Plus F&amp;I Representative (2023–2025)</li>
+              <li>AI Gemini Representative (2025)</li>
+              <li>JL Wellbeing Champion of the Year (2024)</li>
+              <li>Google Digital Marketing (2020)</li>
+              <li>Adobe Creative Suite · Canva · Planoly</li>
+              <li>Microsoft Office Suite · CRM Systems</li>
+              <li>AI tools: Gemini, Claude, ChatGPT</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interests -->
+      <div class="cv-section">
+        <p class="cv-section-title">Interests</p>
+        <p style="font-size:12px;color:#444;line-height:1.7">Fitness, Wellbeing &amp; Personal Growth &nbsp;·&nbsp; Graphic Design &amp; Digital Creativity &nbsp;·&nbsp; Emerging Technologies &amp; Innovation &nbsp;·&nbsp; Social Media Trends &amp; Cultural Shifts &nbsp;·&nbsp; Travel &amp; Cultural Exploration</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

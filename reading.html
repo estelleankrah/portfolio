@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading — Estelle Ankrah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://estelleankrah.github.io/reading.html">
+  <meta property="og:title" content="Reading — Estelle Ankrah">
+  <meta property="og:description" content="The books on my shelf, the tabs in my browser. Fashion law, brand strategy, crisis comms, culture.">
+  <meta property="og:image" content="https://estelleankrah.github.io/estelle-headshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reading — Estelle Ankrah">
+  <meta name="twitter:description" content="The books on my shelf, the tabs in my browser. Fashion law, brand strategy, crisis comms, culture.">
+  <meta name="twitter:image" content="https://estelleankrah.github.io/estelle-headshot.png">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-nav">
+    <a href="index.html" class="nav-logo">Estelle Ankrah</a>
+    <nav class="nav-links">
+      <a href="about-me.html">About</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="reading.html" style="color:var(--ink)">Reading</a>
+      <a href="reading.html">Reading</a>
+      <a href="about-me.html#cv">CV</a>
+    </nav>
+    <a href="mailto:estelleankrah1@gmail.com" class="nav-contact">Contact</a>
+  </header>
+
+  <!-- ON MY BOOKSHELF (reading list) -->
+  <section class="rl-section">
+
+    <!-- Intro -->
+    <div class="rl-intro">
+      <div class="rl-intro-left">
+        <span class="rl-dingbat">✦</span>
+        <p class="rl-list-label">READING LIST ✦</p>
+      </div>
+      <div class="rl-intro-right">
+        <h2 class="rl-headline">On the shelf.</h2>
+        <p class="rl-subtext">Two parts. The shelf — magazines and books I keep within reach. The web — the publications and references I keep open. Click a spine to pick it up; covers and annotations load alongside.</p>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="rl-filters">
+      <span class="rl-area-label">AREA</span>
+      <div class="rl-pills">
+        <button class="rl-pill active" data-area="all">All</button>
+        <button class="rl-pill" data-area="fashion-pr">Fashion PR</button>
+        <button class="rl-pill" data-area="brand-strategy">Brand Strategy</button>
+        <button class="rl-pill" data-area="fashion-law">Fashion Law</button>
+        <button class="rl-pill" data-area="culture">Culture &amp; Identity</button>
+      </div>
+    </div>
+
+    <div class="rl-counts">
+      <span id="rl-sc">6</span> on the shelf &nbsp;&nbsp;&nbsp;
+      <span id="rl-wc">6</span> on the web
+    </div>
+
+    <!-- 01 On the shelf -->
+    <div class="rl-shelf-wrap">
+      <div class="rl-sh-header">
+        <span class="rl-sh-num">01</span>
+        <div>
+          <h3 class="rl-sh-title">On the shelf</h3>
+          <p class="rl-sh-desc">Books and magazines I keep close. Hover the spines — the cursor turns into a hand. Click to pick one up.</p>
+        </div>
+      </div>
+
+      <!-- Featured covers -->
+      <div class="rl-featured-bar"><span class="rl-star">★</span> FEATURED PICKS</div>
+      <div class="rl-featured-row" id="rl-featured"></div>
+
+      <!-- Spine shelf -->
+      <div class="rl-shelf-bar">
+        <span>THE SHELF</span><span>Reach for a book</span>
+      </div>
+      <div class="rl-shelf-outer">
+        <div class="rl-shelf" id="rl-shelf"></div>
+        <div class="rl-shelf-floor"></div>
+      </div>
+      <p class="rl-shelf-hint">← → to browse &nbsp;·&nbsp; click a spine to open</p>
+
+      <!-- Detail panel -->
+      <div class="rl-detail" id="rl-detail"></div>
+    </div>
+
+    <!-- 02 On the web -->
+    <div class="rl-web-wrap">
+      <div class="rl-sh-header">
+        <span class="rl-sh-num">02</span>
+        <div>
+          <h3 class="rl-sh-title">On the web</h3>
+          <p class="rl-sh-desc">Publications, newsletters, and references I check regularly. Click to visit.</p>
+        </div>
+      </div>
+      <div class="rl-web-grid" id="rl-web"></div>
+    </div>
+
+  </section>
+
+  <style>
+    /* ── READING LIST ── */
+    .rl-section {
+      background: var(--white);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      font-family: var(--font-body);
+    }
+
+    /* Intro */
+    .rl-intro {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 0;
+      padding: 72px 40px 40px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .rl-intro-left {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 6px;
+    }
+    .rl-dingbat { font-size: 24px; color: var(--muted); }
+    .rl-list-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .rl-headline {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4vw, 58px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .rl-subtext {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.75;
+    }
+
+    /* Filters */
+    .rl-filters {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+    .rl-area-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .rl-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .rl-pill {
+      font-family: var(--font-body);
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--rule);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .rl-pill:hover { border-color: var(--muted); color: #111; }
+    .rl-pill.active { background: #1a1a18; color: #fff; border-color: var(--ink); }
+
+    .rl-counts {
+      padding: 14px 40px;
+      font-size: 13px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+    }
+    .rl-counts span { font-weight: 600; color: var(--ink); }
+
+    /* Shelf section */
+    .rl-shelf-wrap, .rl-web-wrap { padding: 56px 0 0; }
+
+    .rl-sh-header {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      padding: 0 40px 32px;
+    }
+    .rl-sh-num {
+      font-size: 11px;
+      color: var(--muted);
+      padding-top: 6px;
+      flex-shrink: 0;
+    }
+    .rl-sh-title {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .rl-sh-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* Featured picks */
+    .rl-featured-bar {
+      padding: 0 40px 14px;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .rl-star { color: #c4a870; margin-right: 4px; }
+    .rl-featured-row {
+      display: flex;
+      gap: 12px;
+      padding: 0 40px 40px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .rl-featured-row::-webkit-scrollbar { display: none; }
+    .rl-feat-card {
+      flex-shrink: 0;
+      width: 200px;
+      height: 260px;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .rl-feat-cover {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      text-align: center;
+      gap: 8px;
+    }
+    .rl-feat-cover-title {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .rl-feat-cover-author {
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* Spine shelf */
+    .rl-shelf-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px 16px;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .rl-shelf-outer {
+      padding: 0 40px;
+      position: relative;
+    }
+    .rl-shelf {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+      cursor: grab;
+      min-height: 200px;
+    }
+    .rl-shelf::-webkit-scrollbar { display: none; }
+    .rl-shelf:active { cursor: grabbing; }
+    .rl-shelf-floor {
+      height: 3px;
+      background: #c8b99a;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .rl-shelf-hint {
+      padding: 12px 40px 0;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Spine */
+    .rl-spine {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-radius: 2px 4px 4px 2px;
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      position: relative;
+      transform-origin: bottom center;
+    }
+    .rl-spine:hover { filter: brightness(1.08); }
+    .rl-spine.open { transform: scaleX(1.1) translateY(-4px); }
+    .rl-spine-band { width: 100%; height: 6px; border-radius: 1px; opacity: 0.6; }
+    .rl-spine-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+    .rl-spine-title {
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+    .rl-spine-author {
+      font-family: var(--font-body);
+      font-size: 9px;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Detail panel */
+    .rl-detail {
+      margin: 32px 40px 0;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      background: var(--white);
+      overflow: hidden;
+      display: none;
+    }
+    .rl-detail.open { display: flex; }
+    .rl-detail-cover {
+      width: 260px;
+      flex-shrink: 0;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+    .rl-detail-cover-inner {
+      width: 100%;
+      height: 260px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      gap: 10px;
+    }
+    .rl-detail-cover-title {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .rl-detail-cover-author {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    .rl-detail-body {
+      padding: 36px 40px;
+      flex: 1;
+      border-left: 1px solid var(--rule);
+    }
+    .rl-detail-meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .rl-detail-type {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .rl-detail-area-badge {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+    }
+    .rl-detail-featured {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #c4a870;
+      color: #fff;
+    }
+    .rl-detail-title {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+    .rl-detail-byline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .rl-detail-summary {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .rl-detail-why-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .rl-detail-why {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.7;
+      background: var(--off);
+      padding: 14px 16px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    .rl-detail-close {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--rule);
+      padding: 7px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .rl-detail-close:hover { color: var(--ink); border-color: var(--muted); }
+
+    /* Web grid */
+    .rl-web-wrap { padding-bottom: 64px; }
+    .rl-web-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      margin: 0 40px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .rl-web-card {
+      background: var(--white);
+      padding: 20px 22px 24px;
+      transition: background 0.15s;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+    .rl-web-card:hover { background: #faf9f6; }
+    .rl-web-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .rl-web-dots { display: flex; gap: 4px; }
+    .rl-web-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .rl-web-domain {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      max-width: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .rl-web-type {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--rule);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .rl-web-title {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .rl-web-summary {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .rl-web-visit {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 768px) {
+      .rl-intro { grid-template-columns: 1fr; padding: 48px 24px 32px; }
+      .rl-filters, .rl-counts, .rl-sh-header, .rl-featured-bar, .rl-featured-row,
+      .rl-shelf-bar, .rl-shelf-outer, .rl-shelf-hint { padding-left: 24px; padding-right: 24px; }
+      .rl-detail { margin: 16px 24px 0; flex-direction: column; }
+      .rl-detail-cover { width: 100%; min-height: 160px; }
+      .rl-web-grid { grid-template-columns: 1fr; margin: 0 24px; }
+    }
+  </style>
+
+  <script>
+  (function(){
+    const BOOKS = [
+      { id:'enninful', area:'fashion-pr', featured:true,
+        title:'A Visible Man', spine:'A Visible Man', author:'Edward Enninful', authorShort:'Enninful', year:2022, type:'Book', format:'Hardback · Bloomsbury',
+        color:'#2a2a2e', bandColor:'#555', h:360, w:60, tilt:-1,
+        coverUrl:'projects/bookshelf-covers/a-visible-man.jpg',
+        summary:'The memoir of Edward Enninful — from Ghana to London to the top of Vogue. An account of building a career in fashion while navigating race, identity, and the relentless politics of an industry that wasn\'t built for everyone.',
+        why:'This book is personal. Enninful\'s story sits at the intersection of fashion, communications, and identity — everything I care about. It showed me that ambition and authenticity aren\'t opposites.' },
+      { id:'fashionlaw', area:'fashion-law', featured:true,
+        title:'The New Frontiers of Fashion Law', spine:'Fashion Law', author:'Cerchia & Pozzo', authorShort:'Cerchia', year:2020, type:'Book', format:'Academic · MDPI',
+        color:'#7a4ca0', bandColor:'#9c6ec4', h:320, w:56, tilt:2,
+        coverUrl:'projects/bookshelf-covers/new-frontiers-fashion-law.jpg',
+        summary:'A collection of legal scholarship examining the most pressing issues at the intersection of fashion and law — from sustainability regulation and IP to digital markets and counterfeiting.',
+        why:'Essential reading for anyone building toward fashion law. It covers the legal territory I\'m heading into — and frames it around the real questions the industry is asking right now.' },
+      { id:'dazed', area:'culture', featured:true,
+        title:'Dazed', spine:'Dazed', author:'Rankin & Jefferson Hack', authorShort:'Dazed', year:2022, type:'Magazine', format:'30th Anniversary Issue',
+        color:'#8b1818', bandColor:'#b82020', h:350, w:62, tilt:-2,
+        coverUrl:'projects/bookshelf-covers/dazed-rihanna.webp',
+        summary:'The 30th Anniversary issue of Dazed, featuring Rihanna. A magazine that has always understood fashion as a form of resistance — this issue captures exactly that.',
+        why:'Dazed exists at the edge of culture. The Rihanna issue is a masterclass in how a cover can be a statement — visually, politically, commercially. That\'s the kind of work I want to be part of.' },
+      { id:'vogue', area:'fashion-pr', featured:true,
+        title:'British Vogue — Activism Now', spine:'Activism Now', author:'Edward Enninful, Ed.', authorShort:'Vogue', year:2020, type:'Magazine', format:'September 2020 · Activism Now Issue',
+        color:'#1a1a2e', bandColor:'#3a3a5c', h:370, w:58, tilt:1,
+        coverUrl:'projects/bookshelf-covers/vogue-marcus-rashford.jpg',
+        summary:'The September 2020 issue of British Vogue, guest-edited by Edward Enninful and titled "Activism Now". Marcus Rashford and Adwoa Aboah shared the cover as part of a tribute to 40 faces of hope. Shot by Misan Harriman — the first Black male photographer to shoot a British Vogue front cover in the magazine\'s 104-year history. Rashford was chosen for his campaign against child poverty, which forced the UK government into multiple U-turns on free school meal vouchers during the pandemic.',
+        why:'This issue is the clearest example I know of fashion communications being used as a force for change. Enninful understood that the cover is a platform, Harriman made history behind the lens, and Rashford used his spotlight to protect children. That\'s what the intersection of fashion, PR, and purpose looks like at its best.' }
+    ];
+
+    const WEB = [
+      { id:'luxsoc', area:'brand-strategy', title:'Luxury Brands Need to Rethink Their Long-Term Cultural Impact', domain:'luxurysociety.com', url:'https://luxurysociety.com/en/luxury-brands-need-to-rethink-their-long-term-cultural-impact-heres-why/', type:'Article', author:'Limei Hoang', dots:['#c25e48','#7a62b8','#5c8a5c'], summary:'Luxury brands must move beyond one-off collaborations and commit to authentic, long-term cultural engagement that reflects consumer values around sustainability, diversity, and social impact.' },
+      { id:'dpp', area:'fashion-law', title:'Digital Product Passport', domain:'hyphen-group.com', url:'https://www.hyphen-group.com/en/digital-product-passport/', type:'Industry Guide', author:'Hyphen Group', dots:['#7a62b8','#7a62b8','#5c8a5c'], summary:'An explainer on the EU Digital Product Passport — the incoming regulation requiring fashion brands to provide full lifecycle transparency data on every garment sold. Critical reading for anyone working at the fashion-law boundary.' },
+      { id:'bofmkt', area:'fashion-pr', title:'What\'s Driving Results in Fashion and Beauty Marketing', domain:'businessoffashion.com', url:'https://www.businessoffashion.com/marketing-pr/', type:'Report', author:'Business of Fashion', dots:['#c25e48','#c25e48','#3d6678'], summary:'BoF\'s analysis of which marketing and PR strategies are producing measurable results for fashion and beauty brands — from influencer models to community-first campaigns.' },
+      { id:'tradewars', area:'brand-strategy', title:'Trade Wars Won\'t Break Supply Chains — But the Consumer Impact Will Trouble Brands', domain:'scmr.com', url:'https://www.scmr.com/article/trade-wars-wont-break-supply-chains-but-the-consumer-impact-will-trouble-brands', type:'Article', author:'SCMR', dots:['#b8903a','#c25e48','#3d6678'], summary:'While global trade disruptions are manageable at the supply chain level, the real risk to brands lies in how tariffs and price increases erode consumer confidence — and what that means for brand positioning.' },
+      { id:'sof2026', area:'brand-strategy', title:'The State of Fashion 2026 — Why Almost Every Brand Is Moving Upmarket', domain:'businessoffashion.com', url:'https://www.businessoffashion.com/articles/retail/the-state-of-fashion-2026-report-brand-elevation-pricing-strategy-value-mid-market/', type:'Report', author:'BoF × McKinsey', dots:['#c25e48','#b8903a','#7a62b8'], summary:'The State of Fashion 2026 report reveals how mid-market and value brands are elevating upmarket to compete against ultra-discounters like Shein while capturing consumers priced out of luxury — reshaping the entire value chain.' },
+      { id:'f1fashion', area:'fashion-law', title:'Luxury at 300 km/h: Licensing, Sponsorship and Brand Protection in Formula 1\'s Fashion Economy', domain:'fashionlawjournal.com', url:'http://fashionlawjournal.com/luxury-at-300-km-h-licensing-sponsorship-and-brand-protection-in-formula-1s-fashion-economy/', type:'Fashion Law', author:'Mohit Porwal · Jun 2026', dots:['#7a62b8','#7a62b8','#c25e48'], summary:'Formula 1 has evolved into a global luxury lifestyle platform where IP rights — trademarks, copyrights, designs, and image rights — are the primary drivers of commercial value through licensing, sponsorship, and fashion collaborations.' },
+      { id:'athlete', area:'fashion-law', title:'Persona Non Grata: The Unprotected Athlete in the Age of Fashion Branding and Generative AI', domain:'fashionlawjournal.com', url:'https://fashionlawjournal.com/persona-non-grata-the-unprotected-athlete-in-the-age-of-fashion-branding-and-generative-ai/', type:'Fashion Law', author:'Saumya Verma · May 2026', dots:['#7a62b8','#c25e48','#3d6678'], summary:'Athletes face severe legal vulnerabilities at the intersection of fashion and generative AI — existing IP frameworks fail to protect likenesses used to train AI models through broadly-worded NIL endorsement contracts.' },
+      { id:'swift', area:'fashion-law', title:'Taylor Swift\'s Trademark Strategy', domain:'fashionlawjournal.com', url:'https://fashionlawjournal.com/taylor-swifts-trademark-strategy/', type:'Fashion Law', author:'Michelle Syiemlieh · Apr 2026', dots:['#7a62b8','#b8903a','#7a62b8'], summary:'Swift\'s trademark filings for sound marks and image-based marks represent a strategic adaptation to AI-generated threats — using trademark law as an additional layer of protection when traditional copyright tools prove insufficient.' }
+    ];
+
+    let activeArea = 'all';
+    let openId = null;
+
+    function areaLabel(a){
+      return {all:'All','fashion-pr':'Fashion PR','brand-strategy':'Brand Strategy','fashion-law':'Fashion Law',culture:'Culture & Identity'}[a]||a;
+    }
+
+    function render(){
+      const books = activeArea==='all' ? BOOKS : BOOKS.filter(b=>b.area===activeArea);
+      const web   = activeArea==='all' ? WEB   : WEB.filter(w=>w.area===activeArea);
+      document.getElementById('rl-sc').textContent = books.length;
+      document.getElementById('rl-wc').textContent = web.length;
+      renderFeatured(books);
+      renderShelf(books);
+      renderWeb(web);
+      if(openId && !books.find(b=>b.id===openId)) closeDetail();
+    }
+
+    function coverBg(b){ return `background:${b.color}`; }
+
+    function renderFeatured(books){
+      const row = document.getElementById('rl-featured');
+      const featured = books.filter(b=>b.featured);
+      row.innerHTML = featured.map(b=>`
+        <div class="rl-feat-card" onclick="rlOpen('${b.id}')" title="${b.title}" style="cursor:pointer">
+          ${b.coverUrl
+            ? `<img src="${b.coverUrl}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px">`
+            : `<div class="rl-feat-cover" style="${coverBg(b)}">
+                <div class="rl-feat-cover-title">${b.title}</div>
+                <div class="rl-feat-cover-author">${b.authorShort}</div>
+               </div>`}
+        </div>`).join('');
+    }
+
+    function renderShelf(books){
+      const shelf = document.getElementById('rl-shelf');
+      shelf.innerHTML = books.map(b=>`
+        <div class="rl-spine${openId===b.id?' open':''}" id="sp-${b.id}"
+          style="width:${b.w}px;height:${b.h}px;background:${b.color};transform:rotate(${b.tilt}deg)${openId===b.id?' scaleX(1.1) translateY(-4px)':''}"
+          onclick="rlOpen('${b.id}')" title="${b.title}">
+          <div class="rl-spine-band" style="background:${b.bandColor}"></div>
+          <div class="rl-spine-text">
+            <span class="rl-spine-title">${b.spine}</span>
+            <span class="rl-spine-author">${b.authorShort}</span>
+          </div>
+          <div class="rl-spine-band" style="background:${b.bandColor}"></div>
+        </div>`).join('');
+
+      /* drag scroll */
+      let isDown=false,startX,sl;
+      shelf.addEventListener('mousedown',e=>{isDown=true;startX=e.pageX-shelf.offsetLeft;sl=shelf.scrollLeft;});
+      shelf.addEventListener('mouseleave',()=>isDown=false);
+      shelf.addEventListener('mouseup',()=>isDown=false);
+      shelf.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();shelf.scrollLeft=sl-(e.pageX-shelf.offsetLeft-startX);});
+    }
+
+    function renderWeb(web){
+      const grid = document.getElementById('rl-web');
+      grid.innerHTML = web.map(w=>`
+        <a class="rl-web-card" href="${w.url}" target="_blank" rel="noopener">
+          <div class="rl-web-card-top">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="rl-web-dots">${w.dots.map(d=>`<span class="rl-web-dot" style="background:${d}"></span>`).join('')}</div>
+              <span class="rl-web-domain">${w.domain}</span>
+            </div>
+            <span class="rl-web-type">${w.type}</span>
+          </div>
+          <div class="rl-web-title">${w.title}</div>
+          <div class="rl-web-summary">${w.summary}</div>
+          <div class="rl-web-visit">Visit ↗</div>
+        </a>`).join('');
+    }
+
+    window.rlOpen = function(id){
+      if(openId===id){ closeDetail(); return; }
+      openId = id;
+      const b = BOOKS.find(x=>x.id===id);
+      if(!b) return;
+      const panel = document.getElementById('rl-detail');
+      panel.className = 'rl-detail open';
+      panel.innerHTML = `
+        <div class="rl-detail-cover">
+          ${b.coverUrl
+            ? `<img src="${b.coverUrl}" alt="${b.title}" style="width:100%;height:auto;object-fit:contain;border-radius:4px;display:block">`
+            : `<div class="rl-detail-cover-inner" style="${coverBg(b)}">
+                <div class="rl-detail-cover-title">${b.title}</div>
+                <div class="rl-detail-cover-author">${b.authorShort}</div>
+               </div>`}
+        </div>
+        <div class="rl-detail-body">
+          <div class="rl-detail-meta">
+            <span class="rl-detail-type">${b.type}</span>
+            <span class="rl-detail-area-badge">${areaLabel(b.area)}</span>
+            ${b.featured?'<span class="rl-detail-featured">★ Featured</span>':''}
+          </div>
+          <div class="rl-detail-title">${b.title}</div>
+          <div class="rl-detail-byline">${b.author} &nbsp;·&nbsp; ${b.year} &nbsp;·&nbsp; ${b.format}</div>
+          <div class="rl-detail-summary">${b.summary}</div>
+          <div class="rl-detail-why-label">Why I keep it on the shelf</div>
+          <div class="rl-detail-why">${b.why}</div>
+          <button class="rl-detail-close" onclick="rlClose()">Close ×</button>
+        </div>`;
+      panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+      renderShelf(activeArea==='all'?BOOKS:BOOKS.filter(b=>b.area===activeArea));
+    };
+
+    window.rlClose = function(){ closeDetail(); };
+
+    function closeDetail(){
+      openId = null;
+      const panel = document.getElementById('rl-detail');
+      panel.className = 'rl-detail';
+      panel.innerHTML = '';
+      renderShelf(activeArea==='all'?BOOKS:BOOKS.filter(b=>b.area===activeArea));
+    }
+
+    document.querySelectorAll('.rl-pill').forEach(pill=>{
+      pill.addEventListener('click',()=>{
+        activeArea = pill.dataset.area;
+        document.querySelectorAll('.rl-pill').forEach(p=>p.classList.remove('active'));
+        pill.classList.add('active');
+        openId = null;
+        document.getElementById('rl-detail').className='rl-detail';
+        document.getElementById('rl-detail').innerHTML='';
+        render();
+      });
+    });
+
+    render();
+  })();
+  </script>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <div class="footer-cta-top">
+      <p class="footer-cta-prompt">Have a project in mind?</p>
+      <div class="footer-social-links">
+        <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:estelleankrah1@gmail.com">Email</a>
+      </div>
+    </div>
+    <a href="mailto:estelleankrah1@gmail.com" class="footer-name-huge">ESTELLE<br>ANKRAH</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Estelle Ankrah. All rights reserved.</p>
+    </div>
+  </section>
+
+  <div class="floating-dock">
+    <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:estelleankrah1@gmail.com" class="dock-item" title="Email">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="cv.html" class="dock-btn">Download CV</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

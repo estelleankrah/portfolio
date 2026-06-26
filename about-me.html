@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Estelle Ankrah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Video hero */
+    .about-video-hero {
+      padding-top: var(--nav-h);
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+
+    .about-video-hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    .about-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 56px 40px;
+      color: #fff;
+    }
+
+    .about-video-name {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(52px, 9vw, 120px);
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .about-video-role {
+      font-family: var(--font-body);
+      font-size: clamp(14px, 1.5vw, 18px);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 32px;
+    }
+
+    /* Bio section */
+    .about-bio-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .about-bio-left {
+      padding: 72px 56px 72px 40px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .about-bio-right {
+      padding: 72px 40px 72px 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* Strength cards */
+    .strength-card {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .strength-card:last-child { border-bottom: none; }
+    .strength-card-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .strength-card-text {
+      font-family: var(--font-head);
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    /* Discipline tags */
+    .discipline-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 48px 40px;
+      border-bottom: 1px solid var(--rule);
+      background: var(--off);
+    }
+    .discipline-tag {
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border: 1px solid var(--rule);
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--white);
+    }
+
+    @media (max-width: 900px) {
+      .about-bio-section { grid-template-columns: 1fr; }
+      .about-bio-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 56px 24px; }
+      .about-bio-right { padding: 48px 24px; }
+    }
+    @media (max-width: 640px) {
+      .about-video-overlay { padding: 32px 20px; }
+    }
+  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://estelleankrah.github.io/about-me.html">
+  <meta property="og:title" content="About — Estelle Ankrah">
+  <meta property="og:description" content="Fashion PR & communications graduate from UAL London College of Fashion, First Class Honours. Applying for LLM Fashion Law at Queen Mary University.">
+  <meta property="og:image" content="https://estelleankrah.github.io/estelle-headshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — Estelle Ankrah">
+  <meta name="twitter:description" content="Fashion PR & communications graduate from UAL London College of Fashion, First Class Honours. Applying for LLM Fashion Law at Queen Mary University.">
+  <meta name="twitter:image" content="https://estelleankrah.github.io/estelle-headshot.png">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-nav">
+    <a href="index.html" class="nav-logo">Estelle Ankrah</a>
+    <nav class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#industry">Industry</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="reading.html">Reading</a>
+      <a href="about-me.html#cv">CV</a>
+    </nav>
+    <a href="mailto:estelleankrah1@gmail.com" class="nav-contact">Contact</a>
+  </header>
+
+  <!-- VIDEO HERO -->
+  <section class="about-video-hero">
+    <video autoplay muted loop playsinline>
+      <source src="estelle-video.mp4" type="video/mp4">
+    </video>
+    <a href="index.html" class="proj-page-back" style="position:absolute;top:calc(var(--nav-h)+20px);left:40px;z-index:3;color:rgba(255,255,255,0.65)">← Home</a>
+    <div class="about-video-overlay">
+      <h1 class="about-video-name">Estelle<br>Ankrah</h1>
+      <div class="tag-row">
+        <span class="dot-tag"><span class="dot dot-1"></span>Fashion PR</span>
+        <span class="dot-tag"><span class="dot dot-2"></span>Brand Identity</span>
+        <span class="dot-tag"><span class="dot dot-3"></span>Legal Administration</span>
+        <span class="dot-tag"><span class="dot dot-4"></span>Crisis Management</span>
+        <span class="dot-tag"><span class="dot dot-5"></span>LLM Fashion Law</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BIO + STRENGTHS -->
+  <div class="about-bio-section">
+    <div class="about-bio-left">
+      <p class="small-caps-label" style="margin-bottom:32px">About Me</p>
+      <div class="prose">
+        <p>I'm Estelle Ankrah, a fashion PR and communications graduate from UAL London College of Fashion, where I graduated with First Class Honours. My career sits at the intersection of brand storytelling, stakeholder strategy, and legal thinking — a combination I've been building deliberately, not accidentally.</p>
+        <p>I've worked across fashion PR agencies, luxury press internships, retail events, compliance-driven roles, and a final year that produced a full exhibition concept for Hanifa at the Barbican. Each experience has taught me something different: how campaigns are built, how crises are managed, how brands are protected, and how people are reached.</p>
+        <p>I'm currently applying for an LLM in Fashion Law at Queen Mary University of London, deepening my understanding of the legal frameworks (IP, consumer law, sustainability regulation) that shape the industry I've always worked in. The goal is to work at the point where communications meets brand protection — where storytelling meets legal accountability.</p>
+        <p>I navigate brand reputation. I document with precision. I communicate under pressure.</p>
+      </div>
+
+      <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap">
+        <a href="about-me.html#cv" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink);text-decoration:none;border:1px solid var(--rule);padding:10px 20px;border-radius:999px;transition:background 0.2s" onmouseover="this.style.background='var(--off)'" onmouseout="this.style.background='transparent'">
+          View Full CV
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="mailto:estelleankrah1@gmail.com" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--white);background:var(--ink);text-decoration:none;padding:10px 20px;border-radius:999px;transition:opacity 0.2s" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+          Get in touch
+        </a>
+      </div>
+    </div>
+
+    <div class="about-bio-right">
+      <p class="small-caps-label">What I bring</p>
+
+      <div class="strength-card">
+        <p class="strength-card-label">Brand Storytelling</p>
+        <p class="strength-card-text">Crafting narratives that position brands with clarity and cultural relevance across press, digital, and experiential channels.</p>
+      </div>
+
+      <div class="strength-card">
+        <p class="strength-card-label">Stakeholder &amp; Media Relations</p>
+        <p class="strength-card-text">Managing journalist relationships, influencer partnerships, and cross-functional teams to deliver cohesive brand moments at scale.</p>
+      </div>
+
+      <div class="strength-card">
+        <p class="strength-card-label">Legal &amp; Compliance Thinking</p>
+        <p class="strength-card-text">Documentation management, regulatory compliance, and a growing understanding of the legal frameworks that protect brands — IP, consumer law, brand ethics.</p>
+      </div>
+
+      <div class="strength-card">
+        <p class="strength-card-label">Campaign Execution</p>
+        <p class="strength-card-text">End-to-end coordination of PR campaigns and brand events, from concept through to production and post-campaign analysis.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCIPLINE TAGS -->
+  <div style="padding:16px 40px 0;background:var(--off)">
+    <p style="font-family:var(--font-body);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)">Hover any skill to see where it's been applied →</p>
+  </div>
+  <div class="discipline-grid" id="discipline-grid">
+    <span class="discipline-tag" data-brands="Dior Homme · WEARERAVEN PR · Supriya Lele">Fashion PR</span>
+    <span class="discipline-tag" data-brands="SKIMS · Amaranté × Adidas · Urban Outfitters">Brand Strategy</span>
+    <span class="discipline-tag" data-brands="SKIMS Crisis Response · Brand Guardian Role">Crisis Communications</span>
+    <span class="discipline-tag" data-brands="Hanifa REBIRTH · CUT Denim · Urban Outfitters × Sims 4 · John Lewis Events">Concept Development</span>
+    <span class="discipline-tag" data-brands="Supriya Lele · Hanifa REBIRTH · CUT Denim">Editorial Direction</span>
+    <span class="discipline-tag" data-brands="John Lewis Events · Dior Homme · Event Hotline Rentals">Stakeholder Management</span>
+    <span class="discipline-tag" data-brands="Amaranté × Adidas · WEARERAVEN PR · Urban Outfitters">Campaign Planning</span>
+    <span class="discipline-tag" data-brands="Event Hotline Rentals · WEARERAVEN PR · Amaranté × Adidas · Brand Vendors &amp; Joint Partnerships">Influencer Relations</span>
+    <span class="discipline-tag" data-brands="Dior Homme · Supriya Lele · SKIMS">Press Strategy</span>
+    <span class="discipline-tag" data-brands="John Lewis Events · CUT Denim Launch · Hanifa REBIRTH">Event Production</span>
+    <span class="discipline-tag" data-brands="John Lewis F&amp;I Compliance · Tesco Colleague Manager">Legal Administration</span>
+    <span class="discipline-tag" data-brands="John Lewis F&amp;I Compliance · Tesco Operations">Contract Documentation</span>
+    <span class="discipline-tag" data-brands="Queen Mary University of London · Applicant 2026">LLM Fashion Law</span>
+  </div>
+
+  <!-- SKILL TOOLTIP -->
+  <div id="skill-tooltip" style="
+    position:fixed;
+    z-index:9999;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity 0.15s ease;
+    background:var(--matcha);
+    color:var(--white);
+    border-radius:10px;
+    padding:10px 14px;
+    font-family:var(--font-body);
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    box-shadow:0 4px 16px rgba(0,0,0,0.18);
+    transform:translateY(-8px);
+  "></div>
+
+  <script>
+    (function() {
+      const tip = document.getElementById('skill-tooltip');
+      document.querySelectorAll('.discipline-tag[data-brands]').forEach(tag => {
+        tag.style.cursor = 'default';
+        tag.addEventListener('mouseenter', e => {
+          tip.textContent = tag.dataset.brands;
+          tip.style.opacity = '1';
+          position(e);
+        });
+        tag.addEventListener('mousemove', position);
+        tag.addEventListener('mouseleave', () => { tip.style.opacity = '0'; });
+      });
+      function position(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        const tw = tip.offsetWidth;
+        const left = Math.min(x - tw / 2, window.innerWidth - tw - 12);
+        tip.style.left = Math.max(12, left) + 'px';
+        tip.style.top = (y - 44) + 'px';
+      }
+    })();
+  </script>
+
+  <!-- CV SECTIONS -->
+
+  <!-- SKILLS -->
+  <div class="two-col-section reverse" id="cv" style="background:var(--off)">
+    <div>
+      <p class="sidebar-label">Areas of Expertise</p>
+      <ul class="skill-list">
+        <li>Brand Strategy &amp; Narrative Development</li>
+        <li>Press &amp; Media Relations</li>
+        <li>Influencer &amp; Stakeholder Management</li>
+        <li>Crisis Communications</li>
+        <li>Campaign Planning &amp; Execution</li>
+        <li>Event Coordination &amp; Production</li>
+        <li>Contract &amp; Compliance Documentation</li>
+        <li>Legal Administration &amp; Record-Keeping</li>
+        <li>Social Media Strategy &amp; Content</li>
+        <li>CRM Administration</li>
+      </ul>
+    </div>
+    <div class="prose">
+      <h2 class="section-subhead">What I bring</h2>
+      <p>I hold a rare combination of creative communications training and a growing legal foundation. Where most PR professionals see brand crises as narrative problems, I increasingly see them as legal and reputational ones too. I can work across both registers.</p>
+      <p>I write clearly, I document accurately, and I manage competing stakeholder priorities without losing the thread. These are skills I've developed not in theory but across four years of real, high-stakes retail and media environments.</p>
+    </div>
+  </div>
+
+  <!-- IMAGE STRIP -->
+  <div style="overflow-x:auto;border-bottom:1px solid var(--rule);scrollbar-width:none;display:flex;gap:0;cursor:grab" id="about-strip">
+    <img src="strip-1.png" alt="Supriya Lele campaign collage" style="flex-shrink:0;height:280px;width:auto;object-fit:cover;display:block;border-right:2px solid var(--white)">
+    <img src="strip-2.jpg" alt="Hanifa REBIRTH exhibition render" style="flex-shrink:0;height:280px;width:auto;object-fit:cover;display:block;border-right:2px solid var(--white)">
+    <img src="strip-3.png" alt="Supriya Lele neon event render" style="flex-shrink:0;height:280px;width:auto;object-fit:cover;display:block;border-right:2px solid var(--white)">
+    <img src="strip-4.jpg" alt="Hanifa REBIRTH entrance marble wall render" style="flex-shrink:0;height:280px;width:auto;object-fit:cover;display:block">
+  </div>
+  <script>
+    (function(){
+      const s = document.getElementById('about-strip');
+      let isDown=false,startX,sl;
+      s.addEventListener('mousedown',e=>{isDown=true;s.style.cursor='grabbing';startX=e.pageX-s.offsetLeft;sl=s.scrollLeft;});
+      s.addEventListener('mouseleave',()=>{isDown=false;s.style.cursor='grab';});
+      s.addEventListener('mouseup',()=>{isDown=false;s.style.cursor='grab';});
+      s.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();s.scrollLeft=sl-(e.pageX-s.offsetLeft-startX);});
+    })();
+  </script>
+  <!-- EDUCATION -->
+  <div style="padding:72px 40px;border-bottom:1px solid var(--rule)">
+    <p class="small-caps-label" style="margin-bottom:40px">Education</p>
+    <div class="edu-item">
+      <p class="edu-institution">Queen Mary University of London</p>
+      <p class="edu-degree">LLM Fashion Law · Applying, September 2026</p>
+      <p class="edu-meta">IP · Consumer Law · Sustainability Regulation · Brand Ethics</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-institution">UAL London College of Fashion</p>
+      <p class="edu-degree">BA (Hons) Fashion PR &amp; Communications, <strong>First Class Honours</strong></p>
+      <p class="edu-meta">2020–2023</p>
+      <ul class="skill-list" style="margin-top:12px">
+        <li>The only specialist undergraduate Fashion PR &amp; Communication course in the UK</li>
+        <li>Modules: Fashion PR &amp; Branding Principles · Fashion Cultures &amp; Histories · Reputation Management &amp; Corporate Strategy · Innovation in Communication · Crisis Communication Planning · Professional Practice Placement · Communication Project (final year)</li>
+      </ul>
+    </div>
+    <div class="edu-item">
+      <p class="edu-institution">Northgate Sixth Form</p>
+      <p class="edu-degree">A Levels: Law, Media &amp; Psychology · Grades A–C · EPQ B</p>
+      <p class="edu-meta">2018–2020</p>
+      <ul class="skill-list" style="margin-top:12px">
+        <li>Law B · Media A · Psychology C · EPQ B</li>
+        <li>Covered criminal law, contract law, tort, constitutional and administrative law, human rights, and legal theory</li>
+        <li>Participated in the Young Citizens Mock Trial programme — developing practical skills in legal reasoning, case preparation, advocacy, and courtroom procedure</li>
+      </ul>
+    </div>
+    <div class="edu-item">
+      <p class="edu-institution">St Alban's Catholic High School</p>
+      <p class="edu-degree">GCSEs including English &amp; Mathematics · Grades A*–C</p>
+      <p class="edu-meta">2013–2018</p>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS + TOOLS -->
+  <div class="two-col-section">
+    <div>
+      <p class="small-caps-label" style="margin-bottom:28px">Certifications</p>
+      <ul class="cert-list">
+        <li>JL Protect Plus Finance &amp; Insurance Representative (2023–2025)</li>
+        <li>AI Gemini Representative (2025)</li>
+        <li>JL Wellbeing Champion of the Year (2024)</li>
+        <li>Google Digital Marketing (2020)</li>
+        <li>Laura Croker Award, Business &amp; Media (2018)</li>
+      </ul>
+    </div>
+    <div>
+      <p class="small-caps-label" style="margin-bottom:28px">Tools &amp; Technology</p>
+      <ul class="skill-list">
+        <li>Microsoft Office Suite</li>
+        <li>Adobe Creative Suite</li>
+        <li>Canva</li>
+        <li>CRM systems</li>
+        <li>AI tools: Gemini, Claude, ChatGPT</li>
+        <li>Social media management platforms</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- READING TEASER -->
+  <style>
+    .reading-teaser {
+      padding: 64px 40px;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      transition: background 0.35s ease;
+      cursor: pointer;
+    }
+    .reading-teaser:hover { background: var(--matcha); }
+    .reading-teaser .rt-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      transition: color 0.35s ease;
+    }
+    .reading-teaser:hover .rt-label { color: rgba(255,255,255,0.65); }
+    .reading-teaser .rt-headline {
+      font-family: var(--font-head);
+      font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--ink);
+      transition: color 0.35s ease;
+    }
+    .reading-teaser:hover .rt-headline { color: #fff; }
+    .reading-teaser .rt-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.75;
+      transition: color 0.35s ease;
+    }
+    .reading-teaser:hover .rt-desc { color: rgba(255,255,255,0.75); }
+    .reading-teaser .rt-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1.5px solid var(--ink);
+      padding: 12px 24px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: color 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+    }
+    .reading-teaser:hover .rt-btn {
+      color: var(--matcha);
+      border-color: #fff;
+      background: #fff;
+    }
+    @media (max-width: 640px) {
+      .reading-teaser { flex-direction: column; align-items: flex-start; padding: 48px 24px; }
+    }
+  </style>
+  <a href="reading.html" class="reading-teaser" style="text-decoration:none">
+    <div>
+      <p class="rt-label">On My Bookshelf</p>
+      <h2 class="rt-headline">The books on my shelf,<br>the tabs in my browser.</h2>
+      <p class="rt-desc">Fashion law, brand strategy, crisis comms, culture. Clickable spines, article links, and a note on why each one matters.</p>
+    </div>
+    <span class="rt-btn">
+      View reading list
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </span>
+  </a>
+
+    <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <div class="footer-cta-top">
+      <p class="footer-cta-prompt">Have a project in mind?</p>
+      <div class="footer-social-links">
+        <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:estelleankrah1@gmail.com">Email</a>
+      </div>
+    </div>
+    <a href="mailto:estelleankrah1@gmail.com" class="footer-name-huge">ESTELLE<br>ANKRAH</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Estelle Ankrah. All rights reserved.</p>
+    </div>
+  </section>
+
+  <div class="floating-dock">
+    <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:estelleankrah1@gmail.com" class="dock-item" title="Email">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="cv.html" class="dock-btn">Download CV</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

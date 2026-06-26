@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REBIRTH: The Becoming of Hanifa — Estelle Ankrah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Page-specific overrides ── */
+    .rebirth-hero {
+      padding-top: var(--nav-h);
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+    .rebirth-hero-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      opacity: 0.85;
+    }
+    .rebirth-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 56px 40px;
+      color: #fff;
+    }
+    .rebirth-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.65;
+      margin-bottom: 20px;
+    }
+    .rebirth-title-small {
+      font-family: var(--font-head);
+      font-weight: 300;
+      font-size: clamp(16px, 2vw, 22px);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .rebirth-title-large {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(56px, 10vw, 136px);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 32px;
+    }
+    .rebirth-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .rebirth-tag {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    /* full-bleed render */
+    .render-full {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid var(--rule);
+    }
+    .render-full img { width: 100%; display: block; }
+
+    /* render pair */
+    .render-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+    .render-pair-item { position: relative; overflow: hidden; }
+    .render-pair-item:first-child { border-right: 1px solid var(--rule); }
+    .render-pair-item img { width: 100%; display: block; }
+    .render-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 12px 16px;
+      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* render trio */
+    .render-trio {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+    .render-trio-main { border-right: 1px solid var(--rule); position: relative; overflow: hidden; }
+    .render-trio-stack { display: flex; flex-direction: column; }
+    .render-trio-stack .render-pair-item { flex: 1; border-bottom: 1px solid var(--rule); }
+    .render-trio-stack .render-pair-item:last-child { border-bottom: none; }
+    .render-trio-main img,
+    .render-trio-stack img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* floor plan */
+    .floor-plan-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+    .floor-plan-img-area {
+      border-right: 1px solid var(--rule);
+      background: var(--off);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 440px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .floor-plan-img-area img.fp-loaded { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .floor-plan-info { padding: 60px 48px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+
+    /* Instagram embed */
+    .ig-embed-section {
+      padding: 72px 40px;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .ig-card {
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--white);
+    }
+    .ig-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .ig-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ig-avatar svg { opacity: 0.9; }
+    .ig-handle-name {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .ig-handle-sub {
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+    .ig-preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .ig-preview-cell {
+      aspect-ratio: 1;
+      background: var(--off);
+      border: none;
+      overflow: hidden;
+    }
+    .ig-preview-cell:not(:last-child) { border-right: 1px solid var(--rule); }
+    .ig-preview-cell img { width: 100%; height: 100%; object-fit: cover; }
+    .ig-card-footer {
+      padding: 14px 16px;
+      border-top: 1px solid var(--rule);
+    }
+    .ig-view-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 10px;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .ig-view-btn:hover { background: var(--off); }
+
+    /* Lingala quote */
+    .lingala-quote {
+      padding: 80px 40px;
+      border-bottom: 1px solid var(--rule);
+      text-align: center;
+      background: var(--ink);
+      color: #fff;
+    }
+    .lingala-text {
+      font-family: var(--font-head);
+      font-weight: 300;
+      font-size: clamp(18px, 2.5vw, 32px);
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+      opacity: 0.85;
+      margin-bottom: 16px;
+    }
+    .lingala-translation {
+      font-family: var(--font-body);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
+
+    @media (max-width: 900px) {
+      .render-pair, .render-trio, .floor-plan-section, .ig-embed-section { grid-template-columns: 1fr; }
+      .render-pair-item:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+      .render-trio-main { border-right: none; border-bottom: 1px solid var(--rule); }
+      .floor-plan-img-area { border-right: none; border-bottom: 1px solid var(--rule); min-height: 300px; }
+      .floor-plan-info { padding: 40px 24px; }
+      .ig-embed-section { padding: 56px 24px; gap: 40px; }
+      .rebirth-hero-overlay { padding: 32px 24px; }
+    }
+    @media (max-width: 640px) {
+      .render-trio { grid-template-columns: 1fr; }
+      .lingala-quote, .rebirth-hero-overlay { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://estelleankrah.github.io/hanifa-rebirth.html">
+  <meta property="og:title" content="REBIRTH: The Becoming of Hanifa — Estelle Ankrah">
+  <meta property="og:description" content="Exhibition concept for Hanifa at the Barbican Centre, London. Full spatial design, 3D renders, PR campaign, and Instagram strategy.">
+  <meta property="og:image" content="https://estelleankrah.github.io/projects/hanifa/rebirth-gallery-orbs.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="REBIRTH: The Becoming of Hanifa — Estelle Ankrah">
+  <meta name="twitter:description" content="Exhibition concept for Hanifa at the Barbican Centre, London. Full spatial design, 3D renders, PR campaign, and Instagram strategy.">
+  <meta name="twitter:image" content="https://estelleankrah.github.io/projects/hanifa/rebirth-gallery-orbs.jpg">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-nav">
+    <a href="index.html" class="nav-logo">Estelle Ankrah</a>
+    <nav class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#industry" style="color:var(--ink)">Industry</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="reading.html">Reading</a>
+      <a href="about-me.html#cv">CV</a>
+    </nav>
+    <a href="mailto:estelleankrah1@gmail.com" class="nav-contact">Contact</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="rebirth-hero">
+    <img class="rebirth-hero-img" src="projects/hanifa/rebirth-exterior-sculptures.jpg" alt="REBIRTH: The Becoming of Hanifa, Barbican exhibition concept">
+    <a href="hanifa.html" class="proj-page-back">← Hanifa Brand Research</a>
+    <div class="rebirth-hero-overlay">
+      <p class="rebirth-eyebrow">UAL London College of Fashion &nbsp;·&nbsp; Final Year Project &nbsp;·&nbsp; 2022–23 &nbsp;·&nbsp; The Barbican, London</p>
+      <p class="rebirth-title-small">The Becoming of Hanifa</p>
+      <h1 class="rebirth-title-large">Rebirth</h1>
+      <div class="rebirth-tags">
+        <span class="rebirth-tag">12-Month PR Campaign</span>
+        <span class="rebirth-tag">Exhibition Concept</span>
+        <span class="rebirth-tag">Spatial Planning</span>
+        <span class="rebirth-tag">3D Visualisation</span>
+        <span class="rebirth-tag">Press Strategy</span>
+        <span class="rebirth-tag">Brand Heritage</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINGALA TITLE WALL -->
+  <div class="lingala-quote">
+    <p class="lingala-text">kobotama lisusu &nbsp;·&nbsp; kuzaliwa upya &nbsp;·&nbsp; kalahiran deui &nbsp;·&nbsp; atunbi &nbsp;·&nbsp; ku velekiwa nakambe</p>
+    <p class="lingala-translation">Rebirth, in Lingala, Swahili, Sundanese, Yoruba, and Zulu</p>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="proj-overview">
+    <div class="prose">
+      <h2 class="section-subhead">The Final Year Project</h2>
+      <p>For my final year at UAL London College of Fashion, I chose Hanifa as my brand and developed a full 12-month rotational PR and marketing campaign, concluding in a realised exhibition concept: <em>REBIRTH: The Becoming of Hanifa</em>, conceived for the Barbican Centre in London.</p>
+      <p>The project began with a complete brand audit (brand identity, crisis history, stakeholder mapping, consumer research, competitor analysis) and built to a comprehensive PR plan covering press strategy, social media, partnerships, and event programming across a full year.</p>
+      <p>The final tactic was the exhibition. REBIRTH traces Anifa Mvuemba's journey from the Democratic Republic of Congo to building one of the most innovative brands in contemporary fashion. The Barbican was chosen as the venue for its cultural weight, its architectural drama, and its history of presenting boundary-pushing Black creative work to global audiences.</p>
+      <p>I produced the full spatial concept including a ground-level floor plan, 3D architectural visualisations across all rooms, and an Instagram account documenting the planning process in real time.</p>
+    </div>
+    <aside class="project-sidebar">
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Project Type</p>
+        <p class="sidebar-row-val">Final Year Project, BA Fashion PR &amp; Communications</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Brand</p>
+        <p class="sidebar-row-val">Hanifa by Anifa Mvuemba</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Venue</p>
+        <p class="sidebar-row-val">The Barbican Centre, London</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Year</p>
+        <p class="sidebar-row-val">2022–23</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Deliverables</p>
+        <p class="sidebar-row-val">12-Month PR Plan · Press Strategy · Exhibition Concept · Floor Plan · 3D Visualisations · Social Media Campaign</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Follow the process</p>
+        <p class="sidebar-row-val"><a href="https://www.instagram.com/rebirth.thexhibition" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px">@rebirth.thexhibition</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FINAL PROMO VIDEO -->
+  <div style="border-bottom:1px solid var(--rule);background:#0a0a0a">
+    <div style="padding:40px 40px 16px">
+      <p class="small-caps-label" style="color:rgba(255,255,255,0.45)">Final Exhibition Promo</p>
+      <h2 style="font-family:var(--font-head);font-size:clamp(20px,2.2vw,28px);font-weight:700;letter-spacing:-0.02em;color:#fff;margin-bottom:4px">REBIRTH: The Becoming of Hanifa</h2>
+      <p style="font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,0.45)">Barbican Centre, London</p>
+    </div>
+    <video autoplay muted loop playsinline poster="projects/hanifa/rebirth-gallery-orbs.jpg" style="width:100%;display:block;max-height:80vh;object-fit:cover">
+      <source src="projects/hanifa/final-promo.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- EXTERIOR -->
+  <div class="render-full">
+    <div style="position:relative;overflow:hidden">
+      <img src="projects/hanifa/rebirth-exterior-sculptures.jpg" alt="REBIRTH, Barbican exterior with bronze sculptures" style="width:100%;display:block">
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 40px;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent)">
+        <p style="font-family:var(--font-body);font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.8)">Exterior concept: three monumental bronze sculptures of Black women flanking the Barbican entrance, framing the doorway</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WINDOW + ENTRANCE -->
+  <div class="render-pair">
+    <div class="render-pair-item">
+      <img src="projects/hanifa/rebirth-window-title.jpg" alt="REBIRTH: The Becoming of Hanifa, entrance window">
+      <p class="render-caption">"REBIRTH: The Becoming of Hanifa", entrance window, Barbican ground level</p>
+    </div>
+    <div class="render-pair-item">
+      <img src="projects/hanifa/rebirth-entrance-lobby.jpg" alt="Entrance lobby, black marble wall with Lingala text">
+      <p class="render-caption">Entrance lobby: black marble wall with Lingala title text and Hanifa signature in gold</p>
+    </div>
+  </div>
+
+  <!-- EXHIBITION CONCEPT TEXT -->
+  <div class="slide-section">
+    <p class="slide-section-label">Concept</p>
+    <span class="highlight-label">Estelle's Work</span>
+    <h2 class="slide-section-title">The Exhibition Concept</h2>
+    <p class="slide-section-desc">REBIRTH takes visitors on a journey through the heritage that shaped Hanifa as a brand: the Congo, the Atlantic crossing, the immigrant experience, the ambition, and the art. Each room in the exhibition corresponds to a chapter in Anifa Mvuemba's story, moving from the landscape of her childhood (sand, water, palm trees, a traditional pirogue boat) through to the modern fashion houses and global stages she has conquered. The exhibition is named in Lingala, Mvuemba's mother tongue, and the word "rebirth" is translated across five African languages on the entrance wall.</p>
+    <div class="slides-two">
+      <div>
+        <img src="projects/hanifa/rebirth-entrance-marble-wall.jpg" alt="Entrance marble wall with exhibition text" class="slide-img">
+        <p class="slide-caption">Entrance text panel: The Barbican presents Hanifa's exhibition, Rebirth, tracing the brand's African heritage through interactive rooms named in Lingala</p>
+      </div>
+      <div>
+        <img src="projects/hanifa/rebirth-portal-arch.jpg" alt="Portal archway between exhibition rooms" class="slide-img">
+        <p class="slide-caption">Portal archway between exhibition rooms, organic architectural transition with stone cottage, palm trees, and Congolese landscape references</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOAT ROOM, FULL BLEED -->
+  <div style="border-bottom:1px solid var(--rule);position:relative">
+    <img src="projects/hanifa/rebirth-boat-room.jpg" alt="The Heritage Room, boat on sand with waterfall and hanging photographs" style="width:100%;display:block">
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 40px;background:linear-gradient(to top,rgba(0,0,0,0.65),transparent)">
+      <p style="font-family:var(--font-body);font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.8)">Room 1, Heritage: a traditional pirogue boat on sand, waterfall installation, palm trees, sky ceiling, and hanging photographic portraits of Congolese life</p>
+    </div>
+  </div>
+
+  <!-- BOAT ROOM 2 + GALLERY -->
+  <div class="render-trio">
+    <div class="render-trio-main">
+      <img src="projects/hanifa/rebirth-boat-room-2.jpg" alt="The Heritage Room, secondary view">
+      <p class="render-caption">Room 1 from the rear: geometric wall relief, suspended photographs, Congolese textile installations</p>
+    </div>
+    <div class="render-trio-stack">
+      <div class="render-pair-item">
+        <img src="projects/hanifa/rebirth-gallery-orbs.jpg" alt="Exhibition corridor with glowing orbs">
+        <p class="render-caption">Exhibition corridor: glowing orb lighting, art installations, photographer access zone</p>
+      </div>
+      <div class="render-pair-item">
+        <img src="projects/hanifa/rebirth-gallery-interior.jpg" alt="Gallery interior at night">
+        <p class="render-caption">Gallery interior: evening view with curved architectural forms and colourful door installations</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASHION + MAIN HALL -->
+  <div class="render-pair">
+    <div class="render-pair-item">
+      <img src="projects/hanifa/rebirth-fashion-led.jpg" alt="Fashion gallery, LED screen and Hanifa garments on display">
+      <p class="render-caption">Fashion gallery: large LED campaign screen, Hanifa garments on marble pedestals, the brand's design archive presented as cultural artefact</p>
+    </div>
+    <div class="render-pair-item">
+      <img src="projects/hanifa/rebirth-main-hall.jpg" alt="Main exhibition hall">
+      <p class="render-caption">Main exhibition hall: curved architecture, sculptural installations, interactive information kiosks for visitors</p>
+    </div>
+  </div>
+
+  <!-- EXHIBITION ROOM FULL BLEED -->
+  <div style="border-bottom:1px solid var(--rule)">
+    <img src="projects/hanifa/rebirth-exhibition-room.jpg" alt="Exhibition room, display cases and Congolese imagery" style="width:100%;display:block">
+  </div>
+
+  <!-- FLOOR PLAN -->
+  <div class="floor-plan-section" id="floorplan">
+    <div class="floor-plan-img-area" style="cursor:default;padding:24px">
+      <img src="projects/hanifa/rebirth-floor-plan.jpg" alt="REBIRTH Ground Level Floor Plan — The Barbican" style="width:100%;height:100%;object-fit:contain;display:block">
+    </div>
+    <div class="floor-plan-info">
+      <p class="small-caps-label">Spatial Planning</p>
+      <h3 style="font-family:var(--font-head);font-size:clamp(20px,2.2vw,28px);font-weight:700;letter-spacing:-0.02em;margin-bottom:16px">Ground Level Floor Plan</h3>
+      <p style="font-family:var(--font-body);font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:20px">The ground level floor plan maps the full exhibition layout across the Barbican's circular footprint. The plan organises the visitor journey through four zones:</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+        <li style="font-family:var(--font-body);font-size:14px;color:var(--muted);padding-left:20px;border-left:2px solid var(--rule);line-height:1.6"><strong style="color:var(--ink)">Entrance</strong>, marble wall, Lingala text, arrival into Hanifa's world</li>
+        <li style="font-family:var(--font-body);font-size:14px;color:var(--muted);padding-left:20px;border-left:2px solid var(--rule);line-height:1.6"><strong style="color:var(--ink)">Room 1</strong>, heritage rooms with the boat, waterfall and Congolese landscape</li>
+        <li style="font-family:var(--font-body);font-size:14px;color:var(--muted);padding-left:20px;border-left:2px solid var(--rule);line-height:1.6"><strong style="color:var(--ink)">Exhibition Areas 1–3</strong>, fashion, cultural archive, and brand story</li>
+        <li style="font-family:var(--font-body);font-size:14px;color:var(--muted);padding-left:20px;border-left:2px solid var(--rule);line-height:1.6"><strong style="color:var(--ink)">Giftshop</strong>, Hanifa products, exhibition catalogue, and exclusive collaboration pieces</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CONCEPT RENDERS VIDEO -->
+  <div class="slide-section" style="background:var(--off)">
+    <p class="slide-section-label">Process</p>
+    <h2 class="slide-section-title">Conceptualising the Renders</h2>
+    <p class="slide-section-desc">Behind each 3D visualisation was a process of iterative sketching, spatial reasoning, and brand interpretation — translating Anifa Mvuemba's story into architectural rooms. This footage documents the conceptualisation stage: how the renders were developed from initial references and mood research through to the final exhibition spaces.</p>
+    <video controls playsinline poster="projects/hanifa/rebirth-boat-room.jpg" style="width:100%;display:block;border-radius:var(--r-sm);margin-top:8px;max-height:70vh;object-fit:contain;background:#000">
+      <source src="projects/hanifa/conceptualising-renders.mov" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- INSTAGRAM -->
+  <div class="ig-embed-section">
+    <div>
+      <p class="small-caps-label" style="margin-bottom:20px">Process &amp; Planning</p>
+      <h2 class="section-subhead" style="margin-bottom:20px">Follow the making of REBIRTH</h2>
+      <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:28px">The Instagram account <strong style="color:var(--ink)">@rebirth.thexhibition</strong> documents the full conceptualisation and planning process behind the exhibition, from initial brand research and the 12-month PR plan through to spatial design decisions, render development, and press strategy.</p>
+      <a href="https://www.instagram.com/rebirth.thexhibition" target="_blank" rel="noopener" class="ig-view-btn" style="display:inline-flex;max-width:280px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        View @rebirth.thexhibition
+      </a>
+    </div>
+    <div class="ig-card">
+      <div class="ig-card-header">
+        <div class="ig-avatar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="white" stroke="none"/></svg>
+        </div>
+        <div>
+          <p class="ig-handle-name">rebirth.thexhibition</p>
+          <p class="ig-handle-sub">The Becoming of Hanifa · Barbican, London</p>
+        </div>
+      </div>
+      <div class="ig-preview-grid">
+        <div class="ig-preview-cell">
+          <img src="projects/hanifa/rebirth-boat-room.jpg" alt="">
+        </div>
+        <div class="ig-preview-cell">
+          <img src="projects/hanifa/rebirth-entrance-marble-wall.jpg" alt="">
+        </div>
+        <div class="ig-preview-cell">
+          <img src="projects/hanifa/rebirth-exterior-sculptures.jpg" alt="">
+        </div>
+      </div>
+      <div class="ig-card-footer">
+        <a href="https://www.instagram.com/rebirth.thexhibition" target="_blank" rel="noopener" class="ig-view-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          View full process on Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEXT -->
+  <a href="hanifa.html" class="proj-next">
+    <div>
+      <p class="proj-next-label">Part One</p>
+      <p class="proj-next-name">Hanifa Brand Research</p>
+    </div>
+    <span class="proj-next-arrow">←</span>
+  </a>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <div class="footer-cta-top">
+      <p class="footer-cta-prompt">Have a project in mind?</p>
+      <div class="footer-social-links">
+        <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:estelleankrah1@gmail.com">Email</a>
+      </div>
+    </div>
+    <a href="mailto:estelleankrah1@gmail.com" class="footer-name-huge">ESTELLE<br>ANKRAH</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Estelle Ankrah. All rights reserved.</p>
+    </div>
+  </section>
+
+  <div class="floating-dock">
+    <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:estelleankrah1@gmail.com" class="dock-item" title="Email">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+    </a>
+    <a href="https://www.instagram.com/rebirth.thexhibition" target="_blank" rel="noopener" class="dock-item" title="@rebirth.thexhibition">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="cv.html" class="dock-btn">Download CV</a>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    function loadFloorPlan(input) {
+      const file = input.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      document.getElementById('fp-loaded').src = url;
+      document.getElementById('fp-loaded').style.display = 'block';
+      document.getElementById('fp-ph').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

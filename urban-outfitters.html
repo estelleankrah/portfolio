@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Outfitters × The Sims 4: 22/52 — Estelle Ankrah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* 22/52 brand: dark with electric green/cyan accents */
+    .uo-hero {
+      padding-top: var(--nav-h);
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+    .uo-hero-bg {
+      position: absolute; inset: 0;
+      overflow: hidden;
+    }
+    .uo-hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+    }
+    .uo-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 40%, rgba(0,20,0,0.4) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 56px 40px;
+    }
+    .uo-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #39ff14;
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
+    .uo-hero-title {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(52px, 9vw, 120px);
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .uo-hero-subtitle {
+      font-family: var(--font-head);
+      font-weight: 300;
+      font-size: clamp(18px, 2.5vw, 28px);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #39ff14;
+      margin-bottom: 32px;
+    }
+    .uo-launch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #39ff14;
+      padding: 8px 18px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #39ff14;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .uo-launch-badge::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #39ff14;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* Tactic hero, full dark with 22/52 poster */
+    .tactic-reveal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+    .tactic-reveal-img {
+      background: #0a0a0a;
+      overflow: hidden;
+      border-right: 1px solid var(--rule);
+    }
+    .tactic-reveal-img img { width: 100%; display: block; }
+    .tactic-reveal-info {
+      padding: 72px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Brand moodboard full bleed */
+    .moodboard-full img { width: 100%; display: block; }
+
+    @media (max-width: 900px) {
+      .tactic-reveal { grid-template-columns: 1fr; }
+      .tactic-reveal-img { border-right: none; border-bottom: 1px solid var(--rule); }
+      .tactic-reveal-info { padding: 48px 24px; }
+    }
+    @media (max-width: 640px) {
+      .uo-hero-overlay { padding: 32px 20px; }
+    }
+  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://estelleankrah.github.io/urban-outfitters.html">
+  <meta property="og:title" content="Urban Outfitters × The Sims 4: 22/52 — Estelle Ankrah">
+  <meta property="og:description" content="Innovative communication tactic: full gaming collaboration between Urban Outfitters and The Sims 4, including billboard hunt and TikTok filter.">
+  <meta property="og:image" content="https://estelleankrah.github.io/projects/urban-outfitters/tactical/slide-3.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Urban Outfitters × The Sims 4: 22/52 — Estelle Ankrah">
+  <meta name="twitter:description" content="Innovative communication tactic: full gaming collaboration between Urban Outfitters and The Sims 4, including billboard hunt and TikTok filter.">
+  <meta name="twitter:image" content="https://estelleankrah.github.io/projects/urban-outfitters/tactical/slide-3.jpg">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-nav">
+    <a href="index.html" class="nav-logo">Estelle Ankrah</a>
+    <nav class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#industry" style="color:var(--ink)">Industry</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="reading.html">Reading</a>
+      <a href="about-me.html#cv">CV</a>
+    </nav>
+    <a href="mailto:estelleankrah1@gmail.com" class="nav-contact">Contact</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="uo-hero">
+    <div class="uo-hero-bg">
+      <img src="projects/urban-outfitters/tactical/slide-1.jpg" alt="22/52, Urban Outfitters × The Sims 4">
+    </div>
+    <a href="index.html#industry" class="proj-page-back" style="position:absolute;top:calc(var(--nav-h)+20px);left:40px;z-index:3;color:rgba(255,255,255,0.65)">← Industry Projects</a>
+    <div class="uo-hero-overlay">
+      <p class="uo-eyebrow">UAL London College of Fashion · Innovative Communication Tactics · 2022</p>
+      <span class="uo-launch-badge">Launched 22/5/22 at 22:52 BST</span>
+      <h1 class="uo-hero-title">Urban<br>Outfitters</h1>
+      <p class="uo-hero-subtitle">× The Sims 4: 22/52</p>
+      <div class="proj-page-tags">
+        <span class="proj-page-tag">Gaming Collaboration</span>
+        <span class="proj-page-tag">Brand Research</span>
+        <span class="proj-page-tag">Consumer Analysis</span>
+        <span class="proj-page-tag">Innovative Tactics</span>
+        <span class="proj-page-tag">Digital Repositioning</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <div class="proj-overview">
+    <div class="prose">
+      <h2 class="section-subhead">The Brief</h2>
+      <p>For the Innovative Communication Tactics module at UAL London College of Fashion, I selected Urban Outfitters as my brand and conducted a full research audit before developing and proposing a communication tactic that would reposition them as a digital lifestyle brand.</p>
+      <p>UO is a $3.9 billion lifestyle brand founded in Philadelphia in 1970 as 'The Free People's Store', and now part of the URBN portfolio alongside Anthropologie, Free People, Nuuly, Terrain and BHLDN. Despite 9.2 million Instagram followers and a strong TikTok presence, my research found the brand was significantly underperforming on engagement, failing to generate lifestyle press coverage, and carrying the weight of multiple high-profile controversies that had damaged trust among Gen-Z consumers.</p>
+      <p>My research included interviews and surveys with Urban Outfitters employees, UO consumers, competitor consumers, and gamers, including industry experts who had worked at EA Sports. These findings led me to a tactic no fashion brand had executed quite like this: a full gaming collaboration with The Sims 4, called <strong>22/52</strong>.</p>
+    </div>
+    <aside class="project-sidebar">
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Brand</p>
+        <p class="sidebar-row-val">Urban Outfitters (URBN)</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Module</p>
+        <p class="sidebar-row-val">Innovative Communication Tactics</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Institution</p>
+        <p class="sidebar-row-val">UAL London College of Fashion</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Year</p>
+        <p class="sidebar-row-val">2022</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Tactic</p>
+        <p class="sidebar-row-val">22/52, UO × The Sims 4 gaming collaboration</p>
+      </div>
+      <div class="sidebar-row">
+        <p class="sidebar-row-label">Disciplines</p>
+        <p class="sidebar-row-val">Brand Audit · Consumer Research · Competitor Analysis · Campaign Proposal · Gaming Strategy</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- BRAND MOODBOARD -->
+  <div class="moodboard-full" style="border-bottom:1px solid var(--rule)">
+    <img src="projects/urban-outfitters/brand-moodboard.jpg" alt="Urban Outfitters brand moodboard, $3.9 billion brand">
+  </div>
+
+  <!-- BRAND AUDIT -->
+  <div class="slide-section">
+    <p class="slide-section-label">Brand Audit</p>
+    <h2 class="slide-section-title">Understanding Urban Outfitters</h2>
+    <p class="slide-section-desc">I began with a full internal audit: brand history, sub-lines (UO Home, UO Men's, UO Women, UO Music, UO Beauty, Iets Frans), CSR initiatives (UOCC Community Cares), key internal stakeholders, and a brand timeline from the first Philadelphia store in 1970 to their 2021 web3 NFT drop with Smiley and Andre Saraiva.</p>
+    <div class="slides-two">
+      <div>
+        <img src="projects/urban-outfitters/core-values.jpg" alt="UO Core Values" class="slide-img">
+        <p class="slide-caption">Core values: Indie, 70's Inspired, Boho-Chic, Community, Quirky, Pop Culture, TikTok Trendy, Reworked Vintage</p>
+      </div>
+      <div>
+        <img src="projects/urban-outfitters/intro.jpg" alt="UO Introduction" class="slide-img">
+        <p class="slide-caption">Brand introduction: 248 stores worldwide, 24,000 employees, URBN portfolio, sub-line diversification</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTROVERSIES + COMMS GAP -->
+  <div class="slide-section" style="background:var(--off)">
+    <p class="slide-section-label">Issues</p>
+    <h2 class="slide-section-title">Controversies &amp; The Communications Gap</h2>
+    <p class="slide-section-desc">My research identified a pattern of culturally insensitive product decisions, including a Kent State sweatshirt, a Yellow Star of David shirt, a 'Ghettopoly' board game, a transphobic greeting card, and the illegal use of the Navajo Nation's name (settled in 2016), alongside a significant press coverage gap. Despite being a major high street retailer, UO's coverage appeared almost entirely in business and financial publications such as Forbes, with no presence in i-D, Dazed, or other lifestyle titles that Gen-Z actually reads. On TikTok, the brand mostly reposted consumer content rather than creating its own, driving poor engagement ratios across all platforms.</p>
+    <div class="slides-two">
+      <div>
+        <img src="projects/urban-outfitters/controversies.jpg" alt="UO Controversies" class="slide-img">
+        <p class="slide-caption">Controversies mapped: cultural appropriation, insensitive products, negative press coverage driving consumer boycotts</p>
+      </div>
+      <div>
+        <img src="projects/urban-outfitters/current-comms.jpg" alt="UO Current Communications Strategy" class="slide-img">
+        <p class="slide-caption">Current communications: Instagram (9.2M), TikTok (114.3k), Twitter (3.0M), Pinterest (32M), high following, poor engagement</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONSUMER RESEARCH -->
+  <div class="slide-section">
+    <p class="slide-section-label">Consumer Research</p>
+    <span class="highlight-label">Estelle's Work</span>
+    <h2 class="slide-section-title">Primary Research</h2>
+    <p class="slide-section-desc">I ran an Instagram poll asking "Who shops at Urban Outfitters?" and contacted the 51% of respondents who answered yes to form a focus group. I also surveyed and interviewed UO employees, competitor consumers, and gamers including Libby Bonsetten (ex-EA Sports graphic designer, 13 years gaming) and Nathan Woodley (Sims 4 gamer, 4 years). Key findings: 67.6% of UO consumers play video games; 60% of Sims 4 players are women aged 18–24; the brand's core values align closely with the community-driven nature of gaming.</p>
+    <div class="slides-two">
+      <div>
+        <img src="projects/urban-outfitters/consumer-profile.jpg" alt="Target Consumer Profile, Savannah Jacobs" class="slide-img">
+        <p class="slide-caption">Target female consumer: Savannah Jacobs, 19, London. Law student and part-time waitress. TikTok, BeReal, Depop, Dazed. Ambitious, quirky, environmentally conscious.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:var(--off);border:1px solid var(--rule);border-radius:var(--r-sm);padding:28px">
+          <p style="font-family:var(--font-head);font-size:16px;font-weight:700;letter-spacing:-0.01em;color:var(--ink);margin-bottom:16px">What consumers like about UO</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+            <li style="font-family:var(--font-body);font-size:14px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">"Their aesthetic hits different", Poxon (2022)</li>
+            <li style="font-family:var(--font-body);font-size:14px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">"Clothes are on-trend and different from other high street stores", Kirkby (2022)</li>
+            <li style="font-family:var(--font-body);font-size:14px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">"The way the customers are part of a community", Rebecca (2022)</li>
+          </ul>
+        </div>
+        <div style="background:var(--off);border:1px solid var(--rule);border-radius:var(--r-sm);padding:28px">
+          <p style="font-family:var(--font-head);font-size:16px;font-weight:700;letter-spacing:-0.01em;color:var(--ink);margin-bottom:16px">What they would change</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+            <li style="font-family:var(--font-body);font-size:14px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">"The price and clothes should be more size inclusive", Kirkby (2022)</li>
+            <li style="font-family:var(--font-body);font-size:14px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">"The diversity and inclusion is a major problem", Hamblet (2022)</li>
+            <li style="font-family:var(--font-body);font-size:14px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">"Their sustainability and quality of clothes", Drain (2022)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASHION IN GAMING -->
+  <div class="slide-section" style="background:var(--off)">
+    <p class="slide-section-label">Sector Opportunity</p>
+    <h2 class="slide-section-title">Fashion in the Gaming Industry</h2>
+    <p class="slide-section-desc">The gaming industry generated $155 billion in revenue in 2020, with analysts predicting more than $260 billion by 2025. Moschino and Gucci had already collaborated with The Sims 4; Balenciaga had partnered with Fortnite. The Sims 4, with 36 million players worldwide and $462 million in annual revenue, had collaborated with high fashion but not with an accessible lifestyle brand. As a Sims gamer myself, I identified a gap: the game's community-driven, identity-first ethos was a near-perfect match for UO's stated values, but UO hadn't tapped it.</p>
+    <div class="slides-two">
+      <div>
+        <img src="projects/urban-outfitters/fashion-gaming.jpg" alt="Fashion in the Gaming Industry, Moschino Sims, Balenciaga Fortnite" class="slide-img">
+        <p class="slide-caption">Fashion x Gaming: Moschino x Sims 4, Balenciaga x Fortnite, gaming industry projected to exceed $260bn by 2025</p>
+      </div>
+      <div>
+        <img src="projects/urban-outfitters/sims4.jpg" alt="The Sims 4, 36 million players" class="slide-img">
+        <p class="slide-caption">The Sims 4: 36 million players, $462M annual revenue, previously collaborated with Moschino and Gucci. 60% of players are women aged 18–24.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE TACTIC: 22/52 -->
+  <div class="tactic-reveal">
+    <div class="tactic-reveal-img">
+      <img src="projects/urban-outfitters/22-52-poster.jpg" alt="22/52, Urban Outfitters × The Sims 4">
+    </div>
+    <div class="tactic-reveal-info">
+      <span class="highlight-label">The Core Tactic</span>
+      <h2 class="section-subhead" style="margin-bottom:16px;margin-top:16px">22/52</h2>
+      <h3 style="font-family:var(--font-head);font-size:clamp(24px,3vw,40px);font-weight:800;letter-spacing:-0.03em;line-height:1.05;margin-bottom:24px">Urban Outfitters<br>× The Sims 4</h3>
+      <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:16px">22/52 is a gaming expansion pack collaboration between Urban Outfitters and The Sims 4. The name is drawn from two milestones: the 22nd year of The Sims franchise and the 52nd year of Urban Outfitters, both arriving in 2022.</p>
+      <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:24px">The pack launched on 22/5/22 at 22:52 BST on Origin and all gaming consoles. It features over 100 body types, downloadable content from all 10 UO lines, and was designed to directly address consumer criticisms around diversity, inclusion and sustainability within the brand.</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6"><strong style="color:var(--ink)">The Game:</strong> Sims 4 expansion pack with UO content, 100+ body types, all 10 UO lines</div>
+        <div style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6"><strong style="color:var(--ink)">Billboards:</strong> OOH campaign to drive awareness pre-launch</div>
+        <div style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6"><strong style="color:var(--ink)">TikTok Filter:</strong> Interactive AR filter to generate organic social content</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TACTIC AIMS -->
+  <div class="slide-section">
+    <p class="slide-section-label">Objectives</p>
+    <span class="highlight-label">Estelle's Work</span>
+    <h2 class="slide-section-title">Tactic Aims &amp; Objectives</h2>
+    <p class="slide-section-desc">The full campaign ran across four months with three deliverables: the game expansion, billboard advertising, and a TikTok filter. The launch strategy leveraged both the gaming community's existing interest in UO (67.6% of UO consumers already play games) and the tactic's novelty as the first lifestyle fashion brand to enter The Sims 4.</p>
+    <div class="slides-two">
+      <div>
+        <img src="projects/urban-outfitters/tactic-aims-sims.jpg" alt="Tactic Aims and Objectives" class="slide-img">
+        <p class="slide-caption">Aim 1: Diversify and reposition UO as a digital lifestyle brand. Generate 20% increase in media coverage in fashion, lifestyle and technology publications.</p>
+      </div>
+      <div>
+        <img src="projects/urban-outfitters/tactic-overview-detail.jpg" alt="Tactic Overview Detail" class="slide-img">
+        <p class="slide-caption">Tactic overview: 22/52 targets diversity, inclusion and sustainability gaps. 60% of Sims players are women aged 18–24, exactly UO's target demographic.</p>
+      </div>
+    </div>
+    <div style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="background:var(--off);border:1px solid var(--rule);border-radius:var(--r-sm);padding:28px">
+        <p style="font-family:var(--font-head);font-size:16px;font-weight:700;letter-spacing:-0.01em;color:var(--ink);margin-bottom:8px">Objective 1</p>
+        <p style="font-family:var(--font-body);font-size:14px;color:var(--muted);line-height:1.65">Generate a 20% increase in media coverage, specifically in fashion, lifestyle and technology publications</p>
+      </div>
+      <div style="background:var(--off);border:1px solid var(--rule);border-radius:var(--r-sm);padding:28px">
+        <p style="font-family:var(--font-head);font-size:16px;font-weight:700;letter-spacing:-0.01em;color:var(--ink);margin-bottom:8px">Objective 2</p>
+        <p style="font-family:var(--font-body);font-size:14px;color:var(--muted);line-height:1.65">Increase engagement and followers via creative Instagram and TikTok content among Gen-Z by 50% over 12 months</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TACTICAL OUTCOME -->
+  <div class="slide-section" style="background:var(--ink);color:#fff">
+    <p class="slide-section-label" style="color:rgba(255,255,255,0.5)">Tactical Outcome</p>
+    <span class="highlight-label" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:#fff">Estelle's Work</span>
+    <h2 class="slide-section-title" style="color:#fff">The Game, Built</h2>
+    <p class="slide-section-desc" style="color:rgba(255,255,255,0.6)">The tactical outcome document shows the 22/52 game fully realised: final box art, in-game screens, and the custom world. Every screen was designed by Estelle, from the loading sequence to the eco-town of Philahealthier Green.</p>
+  </div>
+
+  <!-- Full-bleed cover -->
+  <div style="border-bottom:1px solid var(--rule)">
+    <img src="projects/urban-outfitters/tactical/slide-1.jpg" alt="22/52 cover art, retro IBM computer with holographic orbit rings" style="width:100%;display:block">
+  </div>
+
+  <!-- Game pack + laptop mockup -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule)">
+    <div style="border-right:1px solid var(--rule);overflow:hidden;position:relative">
+      <img src="projects/urban-outfitters/tactical/slide-3.jpg" alt="22/52 Final Game Pack Design" style="width:100%;display:block">
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,0.65),transparent)">
+        <p style="font-family:var(--font-body);font-size:11px;letter-spacing:0.06em;color:rgba(255,255,255,0.85)">Final Game Pack Design: diverse characters in UO outfits, featuring multiple body types, skin tones, and styles</p>
+      </div>
+    </div>
+    <div style="overflow:hidden;position:relative">
+      <img src="projects/urban-outfitters/tactical/slide-2.jpg" alt="22/52 laptop mockup" style="width:100%;display:block">
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,0.65),transparent)">
+        <p style="font-family:var(--font-body);font-size:11px;letter-spacing:0.06em;color:rgba(255,255,255,0.85)">22/52 branding: the Sims plumbob within a globe, built as UO's identity within the gaming world</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- In-game screens: welcome + loading -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule)">
+    <div style="border-right:1px solid var(--rule);overflow:hidden;position:relative">
+      <img src="projects/urban-outfitters/tactical/slide-4.jpg" alt="22/52 Welcome Screen, LETS EXPLORE" style="width:100%;display:block">
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,0.65),transparent)">
+        <p style="font-family:var(--font-body);font-size:11px;letter-spacing:0.06em;color:rgba(255,255,255,0.85)">Welcome Screen: the first screen players see on Origin. "LETS EXPLORE....." with diverse Sims characters in UO clothing.</p>
+      </div>
+    </div>
+    <div style="overflow:hidden;position:relative">
+      <img src="projects/urban-outfitters/tactical/slide-5.jpg" alt="22/52 Loading Screen, GETTING GREENER" style="width:100%;display:block">
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,0.65),transparent)">
+        <p style="font-family:var(--font-body);font-size:11px;letter-spacing:0.06em;color:rgba(255,255,255,0.85)">Loading Screen: "GETTING GREENER......", the sustainability message embedded into the game mechanics.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create-A-Sim + town world -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule)">
+    <div style="border-right:1px solid var(--rule);overflow:hidden;position:relative">
+      <img src="projects/urban-outfitters/tactical/slide-6.jpg" alt="22/52 Create-A-Sim, UO outfits" style="width:100%;display:block">
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,0.65),transparent)">
+        <p style="font-family:var(--font-body);font-size:11px;letter-spacing:0.06em;color:rgba(255,255,255,0.85)">Create-A-Sim: players dress their Sims in the full UO FW21 collection, outfits, hair and makeup all from the UO range.</p>
+      </div>
+    </div>
+    <div style="overflow:hidden;position:relative">
+      <img src="projects/urban-outfitters/tactical/slide-7.jpg" alt="Philahealthier Green, the 22/52 game world" style="width:100%;display:block">
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,0.65),transparent)">
+        <p style="font-family:var(--font-body);font-size:11px;letter-spacing:0.06em;color:rgba(255,255,255,0.85)">Philahealthier Green: the custom 22/52 game world, designed around living off the grid and sustainability.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gameplay full bleed -->
+  <div style="border-bottom:1px solid var(--rule);position:relative">
+    <img src="projects/urban-outfitters/tactical/slide-8.jpg" alt="22/52 gameplay, living off the grid" style="width:100%;display:block">
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 40px;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent)">
+      <p style="font-family:var(--font-body);font-size:12px;letter-spacing:0.08em;color:rgba(255,255,255,0.85)">Gameplay: "Living off the grid. Saving money to be able to resell parts for a business." The game narrative addresses sustainability and entrepreneurship directly.</p>
+    </div>
+  </div>
+
+  <!-- BILLBOARD TUBE MAP -->
+  <div class="slide-section">
+    <p class="slide-section-label">OOH Campaign</p>
+    <span class="highlight-label">Estelle's Work</span>
+    <h2 class="slide-section-title">The Billboard Hunt</h2>
+    <p class="slide-section-desc">The out-of-home component of the campaign mapped 22/52 billboards across London using a custom tube map. Each billboard displayed a QR code — when scanned, its pinpoint on the map turns red, tracking the user's progress. A live sidebar monitors time remaining and billboards found, turning the campaign into an interactive city-wide hunt. Billboards were strategically placed near high-footfall locations including Westfield Shepherds Bush, New York store locations, and across key London zones, designed to draw both discovery and footfall into store.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin-top:8px">
+      <div>
+        <img src="projects/urban-outfitters/tube-map-billboards.png" alt="22/52 x Urban Outfitters — London tube map billboard locations" style="width:100%;display:block;border-radius:var(--r-sm)">
+        <p class="slide-caption" style="margin-top:10px">Pin locations across the London tube network. Scanning a billboard QR code turns its pin red on the live map.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:var(--off);border:1px solid var(--rule);border-radius:var(--r-sm);padding:24px">
+          <p style="font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">How it works</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">Map shows all billboard pin locations across London</li>
+            <li style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">User locates a billboard and scans the QR code</li>
+            <li style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">Scanned pin turns red on the live tracker</li>
+            <li style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">Live sidebar tracks time left and billboards found</li>
+            <li style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule);line-height:1.6">Rewards unlocked on completion</li>
+          </ul>
+        </div>
+        <div style="background:var(--off);border:1px solid var(--rule);border-radius:var(--r-sm);padding:24px">
+          <p style="font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Key Locations</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+            <li style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule)">Westfield Shepherds Bush, near the UO store</li>
+            <li style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule)">Oxford Circus, high-footfall central London</li>
+            <li style="font-family:var(--font-body);font-size:13px;color:var(--muted);padding-left:16px;border-left:2px solid var(--rule)">Across key London zones throughout the tube network</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEXT -->
+  <a href="supriya-lele.html" class="proj-next">
+    <div>
+      <p class="proj-next-label">Next Project</p>
+      <p class="proj-next-name">Supriya Lele, 360° Campaign</p>
+    </div>
+    <span class="proj-next-arrow">→</span>
+  </a>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <div class="footer-cta-top">
+      <p class="footer-cta-prompt">Have a project in mind?</p>
+      <div class="footer-social-links">
+        <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:estelleankrah1@gmail.com">Email</a>
+      </div>
+    </div>
+    <a href="mailto:estelleankrah1@gmail.com" class="footer-name-huge">ESTELLE<br>ANKRAH</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Estelle Ankrah. All rights reserved.</p>
+    </div>
+  </section>
+
+  <div class="floating-dock">
+    <a href="https://linkedin.com/in/estelleankrah" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:estelleankrah1@gmail.com" class="dock-item" title="Email">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="cv.html" class="dock-btn">Download CV</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
