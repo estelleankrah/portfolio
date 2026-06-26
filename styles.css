@@ -1605,6 +1605,12 @@ a .project-img-slot,
   .project-card[style*="grid-column"] .project-card-img-wrap { min-height: 240px; }
   .project-card[style*="grid-column"] .project-card-body { border-left: none !important; border-top: 1px solid var(--rule); padding: 24px 20px !important; }
 
+  /* Work grid — full bleed on mobile */
+  .project-grid { margin: 0 -20px; gap: 0; border-top: 1px solid var(--rule); }
+  .project-card { border-bottom: 1px solid var(--rule); border-right: none !important; }
+  .project-card-img-wrap { border-radius: 0; margin-bottom: 0; }
+  .project-card-body { padding: 20px 20px 24px; }
+
   /* Project pages */
   .proj-overview { grid-template-columns: 1fr !important; padding: 40px 20px !important; }
   .proj-page-hero { min-height: 360px; }
