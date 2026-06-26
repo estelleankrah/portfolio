@@ -620,6 +620,7 @@ a .project-img-slot,
   overflow-y: visible;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
   cursor: grab;
   border-top: none;
 }
@@ -1636,9 +1637,13 @@ a .project-img-slot,
   .edu-section { padding: 48px 20px; }
 
   /* Industry section */
-  .industry-section { padding: 0 20px 48px; }
+  .industry-section { padding: 0 0 48px; }
   .industry-header { padding: 48px 20px 32px; }
+  .industry-brand-card { width: 220px; }
+  .industry-scroll-track { padding-right: 20px; }
 
-  /* Floating dock */
+  /* Floating dock — hide email on mobile */
   .floating-dock { bottom: 16px; }
+  .floating-dock .dock-item:nth-child(2) { display: none; }
+  .floating-dock .dock-divider:nth-child(3) { display: none; }
 }
