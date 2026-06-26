@@ -1589,10 +1589,13 @@ a .project-img-slot,
   .page-hero, .two-col-section, .project-body,
   .gallery-section, .next-project { padding-left: 20px; padding-right: 20px; }
 
-  /* About section inline-grid override */
-  #about { padding: 48px 20px !important; }
-  #about > div[style] { grid-template-columns: 1fr !important; gap: 32px !important; }
-  .about-photo-wrap { width: 100% !important; max-width: 280px; }
+  /* About section — small photo left, superpower right */
+  #about { display: flex !important; flex-direction: row !important; align-items: flex-start; padding: 32px 20px !important; gap: 20px !important; }
+  #about .about-center { padding: 0 !important; border-right: none !important; flex-shrink: 0; }
+  #about .about-photo-wrap { width: 90px !important; height: 90px !important; max-width: 90px; border-radius: 50% !important; aspect-ratio: 1 !important; }
+  #about .about-right { padding: 0 !important; flex: 1; }
+  #about .small-caps-label { font-size: 9px; margin-bottom: 10px; }
+  .superpower-text { font-size: clamp(14px, 3.5vw, 18px); }
 
   /* Hero */
   .hero-headline { font-size: clamp(28px, 8vw, 44px); }
