@@ -1604,7 +1604,7 @@ a .project-img-slot,
 
   /* Work grid */
   .project-grid { grid-template-columns: 1fr; }
-  .project-card[style*="grid-column"] { grid-column: 1/-1 !important; display: block !important; }
+  .project-card[style*="grid-column"]:not(.hidden) { grid-column: 1/-1 !important; display: block !important; }
   .project-card[style*="grid-column"] .project-card-img-wrap { min-height: 240px; }
   .project-card[style*="grid-column"] .project-card-body { border-left: none !important; border-top: 1px solid var(--rule); padding: 24px 20px !important; }
 
